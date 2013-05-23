@@ -1,0 +1,65 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/layout_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txv_login_ueberschrift"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/tx_login_email"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="@string/hint_email_login"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
+
+            <EditText
+                android:id="@+id/tx_login_passwort"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="@string/hint_pw_login"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+            <Button
+                android:id="@+id/bt_login_anmelden"
+                android:layout_width="220dp"
+                android:layout_height="42dp"
+                android:maxLines="1"
+                android:text="@string/login_button" />
+
+            <Button
+                android:id="@+id/bt_login_registrieren"
+              	android:layout_width="220dp"
+                android:layout_height="42dp"
+                android:maxLines="1"
+                android:text="@string/registrierung_button" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txv_login_ueberschrift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:text="@string/titel_activity_login"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+</ScrollView>

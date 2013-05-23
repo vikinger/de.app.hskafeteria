@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <CheckedTextView
+        android:id="@+id/CheckedTextView03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/infostring_adresse" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/infostring_oeffnungszeiten" />
+
+    <CheckedTextView
+        android:id="@+id/CheckedTextView01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:text="@string/infostring_mo_do" />
+
+    <CheckedTextView
+        android:id="@+id/CheckedTextView02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:text="@string/infostring_fr" />
+
+    <CheckedTextView
+        android:id="@+id/CheckedTextView04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/infostring_vorlesungsfrei" />
+
+    <CheckedTextView
+        android:id="@+id/CheckedTextView05"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:text="@string/infostring_mo_do_vorlesungsfrei" />
+
+    <CheckedTextView
+        android:id="@+id/CheckedTextView06"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:text="@string/infostring_fr" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.google.android.gms.maps.MapView>
+
+</LinearLayout>

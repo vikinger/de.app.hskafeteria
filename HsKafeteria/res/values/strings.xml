@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HsKafeteria</string>
+    <string name="action_login">Login</string>
+    <string name="nav_news">News</string>
+    <string name="nav_angebote">Angebote</string>
+    <string name="nav_aktionen">Aktionen</string>
+    <string name="nav_info">Info</string>
+    <string name="content">Inhalt</string>
+    <string name="infostring_adresse">Caféteria Moltkestraße 30</string>
+    <string name="infostring_oeffnungszeiten">Öffnungszeiten</string>
+    <string name="infostring_mo_do">Mo. - Do. 7:30 - 16:00 Uhr</string>
+    <string name="infostring_fr">Fr. 7:30 - 14:00 Uhr</string>
+    <string name="infostring_vorlesungsfrei">In der vorlesungsfreien Zeit:</string>
+    <string name="infostring_mo_do_vorlesungsfrei">Mo. - Do. 7:30 - 15:00 Uhr</string>
+    <string name="hint_email_login">E-Mail</string>
+    <string name="hint_pw_login">Passwort</string>
+    <string name="login_button">Anmelden</string>
+    <string name="registrierung_button">Registrieren</string>
+    <string name="titel_activity_login">Login</string>
+    <string name="hint_nachname_reg">Nachname</string>
+    <string name="hint_vorname_reg">Vorname</string>
+    <string name="hint_email_reg">Email</string>
+    <string name="hint_pw_reg">Passwort</string>
+    <string name="registrierung_button">Registrieren</string>
+    <string name="titel_activity_registrierung">Registrierung</string>
+
+</resources>

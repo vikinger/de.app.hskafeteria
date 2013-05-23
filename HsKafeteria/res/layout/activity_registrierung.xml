@@ -1,0 +1,66 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/registrierung_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/tx_reg_nachname"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="50dip"
+            android:ems="10"
+            android:hint="@string/hint_nachname_reg"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:selectAllOnFocus="false" />
+
+        <EditText
+            android:id="@+id/tx_reg_vorname"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/hint_vorname_reg"
+            android:inputType="textPersonName"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/tx_reg_email"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/hint_email_reg"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/tx_reg_passwort"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/hint_pw_reg"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+
+        <Button
+            android:id="@+id/bt_reg_registrieren"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:text="@string/registrierung_button" />
+    </LinearLayout>
+
+</ScrollView>
