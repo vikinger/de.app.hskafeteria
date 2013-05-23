@@ -9,6 +9,7 @@ import javax.ws.rs.ext.Provider;
 public class DatabaseExceptionMapper implements
 		ExceptionMapper<DatabaseException> {
 
+	@SuppressWarnings({ "rawtypes", "unused", "unchecked" })
 	@Override
 	public Response toResponse(DatabaseException e) {
 		GenericEntity ge = new GenericEntity(e.getMessage()){};

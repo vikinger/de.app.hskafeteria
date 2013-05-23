@@ -52,7 +52,7 @@
 		<property name="hibernateProperties">
 			<props>
 			     
-				<prop key="currentSchema">test</prop>
+				<prop key="currentSchema">ebs13db13</prop>
 				
 			</props>
 		</property>
@@ -66,10 +66,17 @@
 	<bean id="oracleDS"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		
+		<!-- connection url zum lokalen db-server -->
 		<property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:XE" />
-		<property name="username" value="test" />
-		<property name="password" value="test" />
+			
+		<!-- connection url zum hochschul-db-server
+		<property name="url"
+			value="jdbc:oracle:thin:@iwi-w-vm-dbo:1521:oracledbwi" />-->
+		
+		<property name="username" value="ebs13db13" />
+		<property name="password" value="eBS13Db" />
 	</bean>
 
 </beans>

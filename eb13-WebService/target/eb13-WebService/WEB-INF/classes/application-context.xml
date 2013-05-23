@@ -16,19 +16,19 @@
 
 	<!-- Resources -->
 	<bean id="benutzerResource"
-		class="de.app.hskafeteria.benutzerverwaltung.rest.impl.BenutzerResourceImpl" />
+		class="de.app.hskafeteria.benutzerverwaltung.BenutzerResourceImpl" />
 	<bean id="newsResource"
-		class="de.app.hskafeteria.newsverwaltung.rest.impl.NewsResourceImpl" />
+		class="de.app.hskafeteria.newsverwaltung.NewsResourceImpl" />
 	<bean id="authService"
 		class="de.app.hskafeteria.authentication.AuthenticationCheckService" />
 
 	
 	<!-- Benutzer-DAO -->
-	<bean id="benutzerDao" class="de.app.hskafeteria.benutzerverwaltung.dao.impl.BenutzerDaoImpl" />
+	<bean id="benutzerDao" class="de.app.hskafeteria.benutzerverwaltung.BenutzerDaoImpl" />
 
 	<!-- News-DAO -->
-	<bean id="TaetigkeitDao"
-		class="de.app.hskafeteria.newsverwaltung.dao.impl.NewsDaoImpl" />
+	<bean id="NewsDao"
+		class="de.app.hskafeteria.newsverwaltung.NewsDaoImpl" />
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -45,8 +45,8 @@
 		<property name="dataSource" ref="oracleDS" />
 		<property name="annotatedClasses">
 			<list>
-				<value>de.app.hskafeteria.benutzerverwaltung.domain.Benutzer</value>
-				<value>de.app.hskafeteria.newsverwaltung.domain.News</value>
+				<value>de.app.hskafeteria.benutzerverwaltung.Benutzer</value>
+				<value>de.app.hskafeteria.newsverwaltung.News</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
