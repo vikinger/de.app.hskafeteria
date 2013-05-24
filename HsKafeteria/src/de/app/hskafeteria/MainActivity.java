@@ -1,7 +1,6 @@
 package de.app.hskafeteria;
 
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.ActionBar;
@@ -14,11 +13,7 @@ public class MainActivity extends Activity {
     @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
-	        
-	        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
-	        StrictMode.setThreadPolicy(policy); 
-	 
+	        	 
 	        ActionBar actionBar = getActionBar();
 	 
 	        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
