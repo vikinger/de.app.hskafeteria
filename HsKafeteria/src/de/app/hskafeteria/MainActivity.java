@@ -71,19 +71,31 @@ public class MainActivity extends Activity {
     	
     	String LoggedInUserEmail = prefs.getString("logged_in_user", "");
     	
-    	if(LoggedInUserEmail != "")
-    	{
-        	MenuItem login = menu.findItem(R.id.login);
-        	login.setVisible(false);
-    	}
-    	
-    	if(LoggedInUserEmail == "")
+    	if(LoggedInUserEmail.equals(""))
     	{
         	MenuItem logout = menu.findItem(R.id.logout);
         	logout.setVisible(false);
         	
         	MenuItem settings = menu.findItem(R.id.settings);
         	settings.setVisible(false);
+        	
+        	MenuItem insert = menu.findItem(R.id.insert);
+        	insert.setVisible(false);
+    	}
+    	
+    	else if(LoggedInUserEmail.equals("admin@admin.com"))
+    	{
+        	MenuItem login = menu.findItem(R.id.login);
+        	login.setVisible(false);
+    	}
+    	
+    	else
+    	{
+        	MenuItem login = menu.findItem(R.id.login);
+        	login.setVisible(false);
+        	
+        	MenuItem insert = menu.findItem(R.id.insert);
+        	insert.setVisible(false);
     	}
     	
         return true;
@@ -100,6 +112,8 @@ public class MainActivity extends Activity {
 			return true;
 		case R.id.settings:
 			startActivity(new Intent(this, Settings.class));
+			return true;
+		case R.id.insert:
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
