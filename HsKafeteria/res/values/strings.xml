@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">HsKafeteria</string>
-    <string name="action_login">Login</string>
+    <string name="login">Login</string>
     <string name="nav_news">News</string>
     <string name="nav_angebote">Angebote</string>
     <string name="nav_aktionen">Aktionen</string>
@@ -18,12 +18,15 @@
     <string name="hint_pw_login">Passwort</string>
     <string name="login_button">Anmelden</string>
     <string name="registrierung_button">Registrieren</string>
-    <string name="titel_activity_login">Login</string>
+    <string name="title_activity_login">Login</string>
     <string name="hint_nachname_reg">Nachname</string>
     <string name="hint_vorname_reg">Vorname</string>
     <string name="hint_email_reg">Email</string>
     <string name="hint_pw_reg">Passwort</string>
     <string name="registrierung_button">Registrieren</string>
-    <string name="titel_activity_registrierung">Registrierung</string>
+    <string name="title_activity_registration">Registrierung</string>
+    <string name="settings">Einstellungen</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="logout">Logout</string>
 
 </resources>

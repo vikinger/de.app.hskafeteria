@@ -1,18 +1,28 @@
 package de.app.hskafeteria;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 
 public class MainActivity extends Activity {
 
+	private Context ctx;
+	
     @Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
+	        
+	        ctx = getBaseContext();
 	        	 
 	        ActionBar actionBar = getActionBar();
 	 
@@ -54,20 +64,77 @@ public class MainActivity extends Activity {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+    	MenuInflater inflater = getMenuInflater();
+    	inflater.inflate(R.menu.main, menu);
+    	
+    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+    	
+    	String LoggedInUserEmail = prefs.getString("logged_in_user", "");
+    	
+    	if(LoggedInUserEmail != "")
+    	{
+        	MenuItem login = menu.findItem(R.id.login);
+        	login.setVisible(false);
+    	}
+    	
+    	if(LoggedInUserEmail == "")
+    	{
+        	MenuItem logout = menu.findItem(R.id.logout);
+        	logout.setVisible(false);
+        	
+        	MenuItem settings = menu.findItem(R.id.settings);
+        	settings.setVisible(false);
+    	}
+    	
         return true;
     }
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        case R.id.action_login:
-        startActivity(new Intent(this, Login.class));
-        return true;
-        default:
-        return super.onOptionsItemSelected(item);
-        }
+		switch (item.getItemId()) {
+		case R.id.login:
+			startActivity(new Intent(this, Login.class));
+			return true;
+		case R.id.logout:
+			showConfirmationDialog();
+			return true;
+		case R.id.settings:
+			startActivity(new Intent(this, Settings.class));
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
     }
+    
+	private void showConfirmationDialog() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		// set title
+		alertDialogBuilder.setTitle("Möchten Sie sich wirklich abmelden?");
+		// set dialog message
+		alertDialogBuilder
+				.setCancelable(false)
+				.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+				    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+				    	prefs.edit().putString("logged_in_user", "").commit();
+
+				    	finish();
+				    	startActivity(getIntent());
+					}
+				})
+				.setNegativeButton("Nein",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								dialog.cancel();
+							}
+						});
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
+	}
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

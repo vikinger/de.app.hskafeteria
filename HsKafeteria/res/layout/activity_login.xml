@@ -58,7 +58,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="55dp"
-            android:text="@string/titel_activity_login"
+            android:text="@string/title_activity_login"
             android:textSize="30sp" />
     </RelativeLayout>
 
