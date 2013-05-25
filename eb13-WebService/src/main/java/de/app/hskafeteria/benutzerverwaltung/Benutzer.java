@@ -32,7 +32,7 @@ public class Benutzer implements Serializable {
 	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="b_id",nullable = false,unique = true, updatable = false)
 	private int bId;
 	
