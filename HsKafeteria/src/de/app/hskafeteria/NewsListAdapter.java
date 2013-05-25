@@ -9,7 +9,9 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
  
 import java.util.ArrayList;
+import java.util.Date;
 
+import de.app.hskafeteria.datetime.DateTimeFormatter;
 import de.app.hskafeteria.httpclient.domain.News;
  
 public class NewsListAdapter extends BaseExpandableListAdapter {
@@ -40,6 +42,12 @@ public class NewsListAdapter extends BaseExpandableListAdapter {
     //gets the title of each parent/group
     public Object getGroup(int i) {
         return mParent.get(i).getTitel();
+    }
+    
+    
+    //gets the title of each parent/group
+    public Object getGroupDate(int i) {
+        return mParent.get(i).getDatum();
     }
  
     @Override
@@ -72,8 +80,13 @@ public class NewsListAdapter extends BaseExpandableListAdapter {
         }
  
         TextView textView = (TextView) view.findViewById(R.id.list_item_text_view_news);
+        TextView dateView = (TextView) view.findViewById(R.id.list_item_text_view_news_date);
         //"i" is the position of the parent/group in the list
         textView.setText(getGroup(i).toString());
+        
+        DateTimeFormatter formatter = new DateTimeFormatter(new Date((Long) getGroupDate(i)));
+        
+        dateView.setText(formatter.getDate());
  
         //return the entire view
         return view;

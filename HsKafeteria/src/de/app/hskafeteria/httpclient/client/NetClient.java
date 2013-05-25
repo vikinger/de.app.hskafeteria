@@ -122,6 +122,7 @@ public class NetClient {
 		try {
 			URL url = new URL(uri);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setConnectTimeout(10000);
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/xml");
 			conn.getResponseCode();

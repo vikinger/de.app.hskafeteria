@@ -58,15 +58,8 @@ public class aktionenTab extends Fragment {
 		        for (int z = 0; z < result.size(); z++){
 		        	
 		        	Aktion aktion = result.get(z);
-		        	Aktion parent = new Aktion();
 		            
-		            String titel = aktion.getTitel();
-		            String inhalt = aktion.getInhalt();
-		            
-		            parent.setTitel(titel);
-		            parent.setInhalt(inhalt);
-		            
-		            arrayParents.add(parent);
+		            arrayParents.add(aktion);
 		           
 		        }
 				mExpandableList.setAdapter(new AktionenListAdapter(aktionenTab.this.getActivity(), arrayParents));
