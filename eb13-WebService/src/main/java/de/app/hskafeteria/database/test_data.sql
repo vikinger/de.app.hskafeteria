@@ -27,3 +27,18 @@ INSERT INTO news (n_id, datum, titel, inhalt)
 VALUES (
 	'3', 1388552400000, 'Kaffee-Automat', 'Neuer Kaffee-Automat wurde aufgestellt.'
 );
+
+INSERT INTO aktion (a_id, datum, titel, inhalt)
+VALUES (
+	'1', 1388552400000, 'Burgertag', 'Jeden Dienstag gibt es leckere Burger!'
+);
+
+INSERT INTO aktion (a_id, datum, titel, inhalt)
+VALUES (
+	'2', 1388552400000, 'Pastatag', 'Jeden Mittwoch gibt es leckere Pasta!'
+);
+
+INSERT INTO aktion (a_id, datum, titel, inhalt)
+VALUES (
+	'3', 1388552400000, 'Pizzatag', 'Jeden Freitag gibt es leckere Pizza!'
+);

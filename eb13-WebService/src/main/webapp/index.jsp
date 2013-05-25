@@ -15,6 +15,13 @@ PUT UpdateNewsById: base-path/rest/News/{nId}<br/>
 DELETE NewsById: base-path/rest/News/{nId}<br/>
 POST NewNews: base-path/rest/News<br/>
 <br/>
+<h3>AktionResource</h3>
+GET Alle Aktionen: base-path/rest/Aktion<br/>
+GET AktionById: base-path/rest/Aktion/{aId}<br/>
+PUT UpdateAktionById: base-path/rest/Aktion/{aId}<br/>
+DELETE AktionById: base-path/rest/Aktion/{aId}<br/>
+POST NewAktion: base-path/rest/Aktion<br/>
+<br/>
 <h3>BenutzerResource</h3>
 GET Alle Benutzer: base-path/rest/Benutzer<br/>
 GET BenutzerById: base-path/rest/Benutzer/{bId}<br/>

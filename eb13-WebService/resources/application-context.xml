@@ -19,6 +19,8 @@
 		class="de.app.hskafeteria.benutzerverwaltung.BenutzerResourceImpl" />
 	<bean id="newsResource"
 		class="de.app.hskafeteria.newsverwaltung.NewsResourceImpl" />
+	<bean id="aktionResource"
+		class="de.app.hskafeteria.aktionenverwaltung.AktionResourceImpl" />
 	<bean id="authService"
 		class="de.app.hskafeteria.authentication.AuthenticationCheckService" />
 
@@ -29,6 +31,10 @@
 	<!-- News-DAO -->
 	<bean id="NewsDao"
 		class="de.app.hskafeteria.newsverwaltung.NewsDaoImpl" />
+	
+	<!-- Aktion-DAO -->
+	<bean id="AktionDao"
+		class="de.app.hskafeteria.aktionenverwaltung.AktionDaoImpl" />
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -47,6 +53,7 @@
 			<list>
 				<value>de.app.hskafeteria.benutzerverwaltung.Benutzer</value>
 				<value>de.app.hskafeteria.newsverwaltung.News</value>
+				<value>de.app.hskafeteria.aktionenverwaltung.Aktion</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
