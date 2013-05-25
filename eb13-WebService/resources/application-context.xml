@@ -80,7 +80,7 @@
 			
 		<!-- connection url zum hochschul-db-server
 		<property name="url"
-			value="jdbc:oracle:thin:@iwi-w-vm-dbo:1521:oracledbwi" />-->
+			value="jdbc:oracle:thin:@iwi-w-vm-dbo:1521:oracledbwi" /> -->
 		
 		<property name="username" value="ebs13db13" />
 		<property name="password" value="eBS13Db" />
