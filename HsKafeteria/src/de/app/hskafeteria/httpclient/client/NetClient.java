@@ -16,17 +16,21 @@ import de.app.hskafeteria.httpclient.domain.Benutzer;
 import de.app.hskafeteria.httpclient.domain.Benutzers;
 import de.app.hskafeteria.httpclient.domain.News;
 import de.app.hskafeteria.httpclient.domain.NewsList;
+import de.app.hskafeteria.httpclient.domain.Aktion;
+import de.app.hskafeteria.httpclient.domain.AktionenList;
+
 
 public class NetClient {
 //	public static String BASE_URL = "http://www.iwi.hs-karlsruhe.de/ebatc/eb13-WebService/rest/";
-	public static String BASE_URL = "http://192.168.178.37/eb13-WebService/rest/";
+	public static String BASE_URL = "http://192.168.178.25/eb13-WebService/rest/";
 
 	public static final String BENUTZER = "Benutzer/";
 	public static final String NEWS = "News/";
+	public static final String AKTION = "Aktion/";
 	public static final String NEWPASSWORD = "newpassword/";
 	public static final String ANGELEGT = "angelegt";
 	public static final String LOGIN = "Login";
-	public static enum DomainType {Benutzer, Benutzers, News, NewsList};
+	public static enum DomainType {Benutzer, Benutzers, News, NewsList, Aktion, AktionenList};
 
 	public int changePassword(String userEmail, String newPassword) {
 		String uri = BASE_URL + BENUTZER + NEWPASSWORD + userEmail + "-" + newPassword;
@@ -53,6 +57,29 @@ public class NetClient {
 
 	public int deleteNews(String newsId) {
 		String uri = BASE_URL + NEWS + newsId;
+		Integer statusCode = delete(uri);
+		return statusCode;
+	}
+	
+	public AktionenList getAllAktionen() {
+		String uri = BASE_URL + AKTION;
+		AktionenList aktionenList = (AktionenList) get(uri, DomainType.AktionenList);
+		return aktionenList;
+	}
+
+	public int createAktion(Aktion a) {
+		int responseCode = -1;
+		String uri = BASE_URL + AKTION;
+		// Serialize
+		String xmlStr = serialize(a);
+		if (xmlStr != null) {
+			responseCode = post(uri, xmlStr);
+		}
+		return responseCode;
+	}
+
+	public int deleteAktion(String aktionId) {
+		String uri = BASE_URL + AKTION + aktionId;
 		Integer statusCode = delete(uri);
 		return statusCode;
 	}
@@ -212,6 +239,10 @@ public class NetClient {
 				return serializer.read(News.class, xmlStr);
 			case NewsList:
 				return serializer.read(NewsList.class, xmlStr);
+			case Aktion:
+				return serializer.read(Aktion.class, xmlStr);
+			case AktionenList:
+				return serializer.read(AktionenList.class, xmlStr);
 			default:
 				return null;
 			}
