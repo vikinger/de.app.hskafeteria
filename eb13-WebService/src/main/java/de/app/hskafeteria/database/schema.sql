@@ -4,6 +4,10 @@ DROP TABLE aktion;
 DROP TABLE angebot;
 DROP TABLE bewertung;
 
+DROP SEQUENCE benutzer_id_sequence;
+DROP SEQUENCE news_id_sequence;
+DROP SEQUENCE bewertung_id_sequence;
+
 CREATE TABLE benutzer (
 	b_id INTEGER PRIMARY KEY,
 	nachname VARCHAR(30),

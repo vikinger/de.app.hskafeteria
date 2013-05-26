@@ -45,12 +45,12 @@ VALUES (
 
 INSERT INTO angebot (an_id, art, titel, zutaten, preis)
 VALUES (
-	'1', 'Getraenk', 'Coca Cola', 'Braune Bruehe mit Zucker und Coffein', '100'
+	'1', 'Getraenke', 'Coca Cola', 'Schwarze Bruehe mit Zucker und Coffein', '100'
 );
 
 INSERT INTO angebot (an_id, art, titel, zutaten, preis)
 VALUES (
-	'2', 'Getraenk', 'Fanta', 'Gelbe Bruehe mit Zucker', '100'
+	'2', 'Getraenke', 'Fanta', 'Gelbe Bruehe mit Zucker', '100'
 );
 
 INSERT INTO angebot (an_id, art, titel, zutaten, preis)
@@ -71,6 +71,11 @@ VALUES (
 INSERT INTO angebot (an_id, art, titel, zutaten, preis)
 VALUES (
 	'6', 'Belegte Broetchen', 'Lyonerbroetchen', 'Lyoner, Butter, Salat, Tomate', '150'
+);
+
+INSERT INTO angebot (an_id, art, titel, zutaten, preis)
+VALUES (
+	'7', 'Getraenke', 'Mezzo Mix', 'Braune Bruehe mit Zucker und Coffein', '100'
 );
 
 INSERT INTO bewertung (bw_id, datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
