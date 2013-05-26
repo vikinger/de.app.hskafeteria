@@ -10,5 +10,6 @@ public interface NewsDao {
 	public void updateNews(News News);
 	public void deleteNews(String id);
 	public List<News> getAllNews();
+	public News getNewsByTitel(String title);
 	public void shutdown();
 }

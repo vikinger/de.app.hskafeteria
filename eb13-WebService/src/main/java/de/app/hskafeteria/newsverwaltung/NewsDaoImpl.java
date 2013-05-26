@@ -25,7 +25,57 @@ public class NewsDaoImpl implements NewsDao{
 	 */
 	@Override
 	public void createNews(final News news) {
-
+		try {
+			HibernateCallback<Object> callback = new HibernateCallback<Object>() {
+				@Override
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					String titel = news.getTitel();
+					News newsInDB = getNewsByTitel(titel);
+					if (newsInDB == null)
+						session.save(news);
+					return null;
+				}
+			};
+			hibernateTemplate.execute(callback);
+		} catch (HibernateException e) {
+			handleException(e);
+		}
+		shutdown();
+	}
+	
+	/**
+	 * Find an News by its title.
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public News getNewsByTitel(final String titel) {
+		Object result = null;
+		try {
+			HibernateCallback<News> callback = new HibernateCallback<News>() {
+				@SuppressWarnings("rawtypes")
+				@Override
+				public News doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					Query query = session.createQuery("from News where titel = :titel ");
+					query.setParameter("titel", titel);
+					List list = query.list();
+					if (list.size() != 0)
+						return (News) list.get(0);
+					else return null;
+				}
+			};
+			result = hibernateTemplate.execute(callback);
+			if (result == null)
+				return null;
+		} catch (HibernateException e) {
+			handleException(e);
+		}
+		if (result instanceof News) {
+			return (News) result;
+		}
+		return null;
 	}
 
 	/**
