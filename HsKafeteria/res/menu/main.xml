@@ -1,28 +1,51 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/login"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/login"/>
-    
-    <item
-        android:id="@+id/logout"
-        android:orderInCategory="200"
-        android:showAsAction="never"
-        android:title="@string/logout"/>
-    
-    <item
-        android:id="@+id/settings"
-        android:orderInCategory="300"
-        android:showAsAction="never"
-        android:title="@string/settings"/>
-    
+        android:id="@+id/menu"
+        android:icon="@drawable/action_menu"
+        android:showAsAction="always"
+        android:orderInCategory="400" >
+        <menu>
+            <item
+                android:id="@+id/login"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:title="@string/login"/>
+            <item
+                android:id="@+id/logout"
+                android:orderInCategory="200"
+                android:showAsAction="never"
+                android:title="@string/logout"/>
+            <item
+                android:id="@+id/settings"
+                android:orderInCategory="300"
+                android:showAsAction="never"
+                android:title="@string/settings"/>
+        </menu>
+    </item>
     <item
         android:id="@+id/insert"
         android:icon="@drawable/content_new"
-        android:orderInCategory="400"
+        android:orderInCategory="100"
         android:showAsAction="always"
-        android:title="@string/content_new"/>
+        android:title="@string/content_new" >
+        <menu>
+            <item
+                android:id="@+id/insert_news"
+                android:orderInCategory="100"
+                android:showAsAction="never"
+                android:title="@string/insert_news"/>
+            <item
+                android:id="@+id/insert_angebot"
+                android:orderInCategory="200"
+                android:showAsAction="never"
+                android:title="@string/insert_angebot"/>
+            <item
+                android:id="@+id/insert_aktion"
+                android:orderInCategory="300"
+                android:showAsAction="never"
+                android:title="@string/insert_aktion"/>
+        </menu>
+    </item>
 
 </menu>

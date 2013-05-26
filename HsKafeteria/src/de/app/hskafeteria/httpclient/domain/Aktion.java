@@ -12,7 +12,7 @@ public class Aktion implements Parcelable{
 	@Element(required=false)
 	private int aId;
 	@Element
-	private long datum;
+	private String tag;
 	@Element
 	private String titel;
 	@Element
@@ -25,7 +25,7 @@ public class Aktion implements Parcelable{
 		aId = in.readInt();
         inhalt = in.readString();
         titel = in.readString();
-        datum = in.readLong();
+        tag = in.readString();
     }
 
 	public int getAId() {
@@ -36,12 +36,12 @@ public class Aktion implements Parcelable{
 		this.aId = aId;
 	}
 
-	public long getDatum() {
-		return this.datum;
+	public String getTag() {
+		return this.tag;
 	}
 
-	public void setDatum(long datum) {
-		this.datum = datum;
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 
 	public String getInhalt() {
@@ -70,7 +70,7 @@ public class Aktion implements Parcelable{
 		dest.writeInt(aId);
 		dest.writeString(inhalt);
 		dest.writeString(titel);
-		dest.writeLong(datum);
+		dest.writeString(tag);
 	}
 
 	@Override

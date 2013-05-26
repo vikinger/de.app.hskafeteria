@@ -29,5 +29,8 @@
     <string name="title_activity_settings">Einstellungen</string>
     <string name="logout">Logout</string>
     <string name="content_new">Neuen Inhalt eintragen</string>
+    <string name="insert_news">News hinzufügen</string>
+    <string name="insert_angebot">Angebote hinzufügen</string>
+    <string name="insert_aktion">Aktion hinzufügen</string>
 
 </resources>

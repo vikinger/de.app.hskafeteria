@@ -46,7 +46,7 @@ public class AktionenListAdapter extends BaseExpandableListAdapter {
     
     //gets the title of each parent/group
     public Object getGroupDate(int i) {
-        return mParent.get(i).getDatum();
+        return mParent.get(i).getTag();
     }
  
     @Override
@@ -79,13 +79,14 @@ public class AktionenListAdapter extends BaseExpandableListAdapter {
         }
  
         TextView textView = (TextView) view.findViewById(R.id.list_item_text_view_aktionen);
-        TextView dateView = (TextView) view.findViewById(R.id.list_item_text_view_aktionen_date);
+        TextView dayView = (TextView) view.findViewById(R.id.list_item_text_view_aktionen_date);
         //"i" is the position of the parent/group in the list
         textView.setText(getGroup(i).toString());
         
-        DateTimeFormatter formatter = new DateTimeFormatter(new Date((Long) getGroupDate(i)));
-        
-        dateView.setText(formatter.getDate());
+        dayView.setText(getGroupDate(i).toString());
+//        DateTimeFormatter formatter = new DateTimeFormatter(new Date((Long) getGroupDate(i)));
+//        
+//        dayView.setText(formatter.getDate());
  
         //return the entire view
         return view;
