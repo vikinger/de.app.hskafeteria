@@ -13,7 +13,6 @@ import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.widget.Toast;
 import de.app.hskafeteria.httpclient.client.NetClient;
-import de.app.hskafeteria.httpclient.domain.Benutzer;
 
 public class Settings extends PreferenceActivity implements OnSharedPreferenceChangeListener{
 	Context ctx = null;

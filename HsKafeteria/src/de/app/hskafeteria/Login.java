@@ -1,7 +1,6 @@
 package de.app.hskafeteria;
 
 import de.app.hskafeteria.httpclient.client.NetClient;
-import de.app.hskafeteria.httpclient.domain.Benutzer;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;

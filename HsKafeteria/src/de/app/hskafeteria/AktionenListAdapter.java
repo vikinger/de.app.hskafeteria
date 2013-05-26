@@ -9,9 +9,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
  
 import java.util.ArrayList;
-import java.util.Date;
 
-import de.app.hskafeteria.datetime.DateTimeFormatter;
 import de.app.hskafeteria.httpclient.domain.Aktion;
  
 public class AktionenListAdapter extends BaseExpandableListAdapter {

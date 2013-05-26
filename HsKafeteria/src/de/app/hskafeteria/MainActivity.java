@@ -83,19 +83,10 @@ public class MainActivity extends Activity {
         	insert.setVisible(false);
     	}
     	
-    	else if(LoggedInUserEmail.equals("admin@admin.com"))
-    	{
-        	MenuItem login = menu.findItem(R.id.login);
-        	login.setVisible(false);
-    	}
-    	
     	else
     	{
         	MenuItem login = menu.findItem(R.id.login);
         	login.setVisible(false);
-        	
-        	MenuItem insert = menu.findItem(R.id.insert);
-        	insert.setVisible(false);
     	}
     	
         return true;
@@ -113,7 +104,8 @@ public class MainActivity extends Activity {
 		case R.id.settings:
 			startActivity(new Intent(this, Settings.class));
 			return true;
-		case R.id.insert:
+		case R.id.insert_news:
+			startActivity(new Intent(this, newNews.class));
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

@@ -1,0 +1,61 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <LinearLayout
+            android:id="@+id/newnews_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txv_newnews_ueberschrift"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            android:orientation="vertical" >
+                    
+
+        <EditText
+            android:id="@+id/tx_newnews_titel"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/hint_titel_newnews"
+            android:inputType="text"
+            android:maxLines="1"
+            android:selectAllOnFocus="false" />
+
+        <EditText
+            android:id="@+id/tx_newnews_inhalt"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/hint_inhalt_newnews"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <Button
+            android:id="@+id/bt_newnews_insert"
+            android:layout_width="220dp"
+            android:layout_height="42dp"
+            android:maxLines="1"
+            android:text="@string/newnews_insert_button" />
+        </LinearLayout>
+        
+            <TextView
+            android:id="@+id/txv_newnews_ueberschrift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:text="@string/title_activity_newnews"
+            android:textSize="30sp" />
+                
+    </RelativeLayout>
+
+</ScrollView>
