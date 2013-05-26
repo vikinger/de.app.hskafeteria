@@ -27,7 +27,7 @@ public class Aktion implements Serializable {
 	private Integer aId;
 
 	@Column(nullable = false)
-	private long datum;
+	private String tag;
 
 	@Column(nullable = false)
 	private String titel;
@@ -46,12 +46,12 @@ public class Aktion implements Serializable {
 		this.aId = aId;
 	}
 
-	public long getDatum() {
-		return this.datum;
+	public String getTag() {
+		return this.tag;
 	}
 
-	public void setDatum(long datum) {
-		this.datum = datum;
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 
 	public String getTitel() {

@@ -19,7 +19,7 @@ CREATE TABLE news (
 
 CREATE TABLE aktion (
 	a_id INTEGER PRIMARY KEY,
-	datum INTEGER,
+	tag VARCHAR(12),
 	titel VARCHAR(50),
 	inhalt VARCHAR(300)
 );
