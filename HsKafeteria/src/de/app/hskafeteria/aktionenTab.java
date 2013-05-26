@@ -8,6 +8,8 @@ import de.app.hskafeteria.httpclient.domain.Aktion;
 import de.app.hskafeteria.httpclient.domain.AktionenList;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,12 +31,37 @@ public class aktionenTab extends Fragment {
 
         mExpandableList = (ExpandableListView) inflatedView.findViewById(R.id.expandable_list_aktionen);
         
-        new AktionenAsyncTask().execute();
+        new AktionenAsyncTask(this.getActivity()).execute();
         
         return inflatedView;
     }
 	
 	private class AktionenAsyncTask extends AsyncTask<Void, Void, List<Aktion>> {
+		
+		private ProgressDialog pDlg = null;
+		private Context mContext = null;
+		private String processMessage = "Aktionen werden geladen...";
+		
+        public AktionenAsyncTask(Context mContext) {
+            this.mContext = mContext;
+        }
+		
+        private void showProgressDialog() {
+            
+            pDlg = new ProgressDialog(mContext);
+            pDlg.setMessage(processMessage);
+            pDlg.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            pDlg.setCancelable(false);
+            pDlg.show();
+ 
+        }
+        
+        @Override
+        protected void onPreExecute() {
+ 
+            showProgressDialog();
+ 
+        }
 		
 		@Override
 		protected List<Aktion> doInBackground(Void... params) {
@@ -64,6 +91,7 @@ public class aktionenTab extends Fragment {
 		        }
 				mExpandableList.setAdapter(new AktionenListAdapter(aktionenTab.this.getActivity(), arrayParents));
 			}
+			pDlg.dismiss();
 		}
 	}
 
