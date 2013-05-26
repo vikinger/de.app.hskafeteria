@@ -21,6 +21,10 @@
 		class="de.app.hskafeteria.newsverwaltung.NewsResourceImpl" />
 	<bean id="aktionResource"
 		class="de.app.hskafeteria.aktionenverwaltung.AktionResourceImpl" />
+	<bean id="angebotResource"
+		class="de.app.hskafeteria.angeboteverwaltung.AngebotResourceImpl" />
+	<bean id="bewertungResource"
+		class="de.app.hskafeteria.bewertungsverwaltung.BewertungResourceImpl" />
 	<bean id="authService"
 		class="de.app.hskafeteria.authentication.AuthenticationCheckService" />
 
@@ -35,6 +39,14 @@
 	<!-- Aktion-DAO -->
 	<bean id="AktionDao"
 		class="de.app.hskafeteria.aktionenverwaltung.AktionDaoImpl" />
+	
+	<!-- Angebot-DAO -->
+	<bean id="AngebotDao"
+		class="de.app.hskafeteria.angeboteverwaltung.AngebotDaoImpl" />
+	
+	<!-- Bewertung-DAO -->
+	<bean id="BewertungDao"
+		class="de.app.hskafeteria.bewertungsverwaltung.BewertungDaoImpl" />
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -54,6 +66,8 @@
 				<value>de.app.hskafeteria.benutzerverwaltung.Benutzer</value>
 				<value>de.app.hskafeteria.newsverwaltung.News</value>
 				<value>de.app.hskafeteria.aktionenverwaltung.Aktion</value>
+				<value>de.app.hskafeteria.angeboteverwaltung.Angebot</value>
+				<value>de.app.hskafeteria.bewertungsverwaltung.Bewertung</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

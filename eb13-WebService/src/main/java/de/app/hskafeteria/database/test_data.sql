@@ -73,12 +73,17 @@ VALUES (
 	'6', 'Belegte Broetchen', 'Lyonerbroetchen', 'Lyoner, Butter, Salat, Tomate', '150'
 );
 
-INSERT INTO bewertung (b_id, datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
+INSERT INTO bewertung (bw_id, datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
 VALUES (
 	'1', 1369579440000, '10', 'Originale Coca Cola ist immernoch die beste', 1, 1
 );
 
-INSERT INTO bewertung (b_id, datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
+INSERT INTO bewertung (bw_id, datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
 VALUES (
 	'2', 1369579440000, '8', 'Die gute alte Coke', 2, 1
+);
+
+INSERT INTO bewertung (bw_id, datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
+VALUES (
+	'3', 1369579440000, '6', 'Richtig gut und schoen kalt', 3, 1
 );

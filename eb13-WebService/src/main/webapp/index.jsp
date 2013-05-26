@@ -28,5 +28,18 @@ GET BenutzerById: base-path/rest/Benutzer/{bId}<br/>
 PUT UpdateBenutzerById: base-path/rest/Benutzer/{bId}<br/>
 DELETE BenutzerById: base-path/rest/Benutzer/{bId}<br/>
 POST NewBenutzer: base-path/rest/Benutzer<br/>
+<br/>
+<h3>AngebotResource</h3>
+GET Alle Angebote: base-path/rest/Angebot<br/>
+GET AngebotById: base-path/rest/Angebot/{anId}<br/>
+PUT UpdateAngebotById: base-path/rest/Angebot/{anId}<br/>
+DELETE AngebotById: base-path/rest/Angebot/{anId}<br/>
+POST NewAngebot: base-path/rest/Angebot<br/>
+<br/>
+<h3>BewertungResource</h3>
+GET Alle Bewertungen: base-path/rest/Bewertung<br/>
+GET BewertungenFromAngebot: base-path/rest/Bewertung/{titel}<br/>
+DELETE BewertungById: base-path/rest/Bewertung/{bwId}<br/>
+POST NewBewertung: base-path/rest/Bewertung<br/>
 </body>
 </html>
