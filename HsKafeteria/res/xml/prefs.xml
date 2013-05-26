@@ -3,12 +3,19 @@
 
     <PreferenceCategory
         android:summary="Einstellungen für Benutzer"
-        android:title="Benutzer-Einstellungen" >
+        android:title="Benutzer-Daten" >
+        <Preference
+            android:key="logged_in_user_name"
+            android:summary=""
+            android:title="Benutzer" />
         <Preference
             android:key="logged_in_user"
             android:summary=""
-            android:title="Benutzer" />
-
+            android:title="Email" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:summary="Optionen für Benutzer"
+        android:title="Optionen" >
         <EditTextPreference
             android:inputType="textPassword"
             android:key="logged_in_password"

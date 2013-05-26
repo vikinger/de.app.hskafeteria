@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.widget.Toast;
 import de.app.hskafeteria.httpclient.client.NetClient;
+import de.app.hskafeteria.httpclient.domain.Benutzer;
 
 public class Settings extends PreferenceActivity implements OnSharedPreferenceChangeListener{
 	Context ctx = null;
@@ -29,9 +30,13 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
 		prefs.registerOnSharedPreferenceChangeListener(this);
+		final String name = prefs.getString("logged_in_user_name", "");
 		final String email = prefs.getString("logged_in_user", "");
 		
-		Preference loggedInUserPref = findPreference("logged_in_user");
+		Preference loggedInUserPref = findPreference("logged_in_user_name");
+		loggedInUserPref.setSummary(name);
+		
+		loggedInUserPref = findPreference("logged_in_user");
 		loggedInUserPref.setSummary(email);
 	}
 	
