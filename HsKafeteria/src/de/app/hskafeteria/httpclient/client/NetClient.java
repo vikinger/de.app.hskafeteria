@@ -12,6 +12,8 @@ import java.net.URL;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
+import de.app.hskafeteria.httpclient.domain.Angebot;
+import de.app.hskafeteria.httpclient.domain.AngeboteList;
 import de.app.hskafeteria.httpclient.domain.Benutzer;
 import de.app.hskafeteria.httpclient.domain.Benutzers;
 import de.app.hskafeteria.httpclient.domain.News;
@@ -27,10 +29,11 @@ public class NetClient {
 	public static final String BENUTZER = "Benutzer/";
 	public static final String NEWS = "News/";
 	public static final String AKTION = "Aktion/";
+	public static final String ANGEBOT = "Angebot/";
 	public static final String NEWPASSWORD = "newpassword/";
 	public static final String ANGELEGT = "angelegt";
 	public static final String LOGIN = "Login";
-	public static enum DomainType {Benutzer, Benutzers, News, NewsList, Aktion, AktionenList};
+	public static enum DomainType {Benutzer, Benutzers, News, NewsList, Aktion, AktionenList, Angebot, AngeboteList};
 
 	public int changePassword(String userEmail, String newPassword) {
 		String uri = BASE_URL + BENUTZER + NEWPASSWORD + userEmail + "-" + newPassword;
@@ -80,6 +83,29 @@ public class NetClient {
 
 	public int deleteAktion(String aktionId) {
 		String uri = BASE_URL + AKTION + aktionId;
+		Integer statusCode = delete(uri);
+		return statusCode;
+	}
+	
+	public AngeboteList getAllAngebote() {
+		String uri = BASE_URL + ANGEBOT;
+		AngeboteList angeboteList = (AngeboteList) get(uri, DomainType.AngeboteList);
+		return angeboteList;
+	}
+
+	public int createAngebot(Angebot a) {
+		int responseCode = -1;
+		String uri = BASE_URL + ANGEBOT;
+		// Serialize
+		String xmlStr = serialize(a);
+		if (xmlStr != null) {
+			responseCode = post(uri, xmlStr);
+		}
+		return responseCode;
+	}
+
+	public int deleteAngebot(String angebotId) {
+		String uri = BASE_URL + ANGEBOT + angebotId;
 		Integer statusCode = delete(uri);
 		return statusCode;
 	}
@@ -244,6 +270,10 @@ public class NetClient {
 				return serializer.read(Aktion.class, xmlStr);
 			case AktionenList:
 				return serializer.read(AktionenList.class, xmlStr);
+			case Angebot:
+				return serializer.read(Angebot.class, xmlStr);
+			case AngeboteList:
+				return serializer.read(AngeboteList.class, xmlStr);
 			default:
 				return null;
 			}

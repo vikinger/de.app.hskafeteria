@@ -4,7 +4,7 @@
     <string name="app_name">HsKafeteria</string>
     <string name="login">Login</string>
     <string name="nav_news">News</string>
-    <string name="nav_angebote">Angebote</string>
+    <string name="nav_angebot">Angebot</string>
     <string name="nav_aktionen">Aktionen</string>
     <string name="nav_info">Info</string>
     <string name="content">Inhalt</string>

@@ -23,7 +23,6 @@ import android.widget.Toast;
 public class newsTab extends Fragment {
     
     private ExpandableListView mExpandableList;
-
 	 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

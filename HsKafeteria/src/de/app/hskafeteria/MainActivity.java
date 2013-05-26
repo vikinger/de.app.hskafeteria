@@ -36,11 +36,11 @@ public class MainActivity extends Activity {
 	        tab.setTabListener(tl1);
 	        actionBar.addTab(tab);
 	 
-	        String nav_angebote = getResources().getString(R.string.nav_angebote);
+	        String nav_angebot = getResources().getString(R.string.nav_angebot);
 	        tab = actionBar.newTab();
-	        tab.setText(nav_angebote);
-	        TabListener<angeboteTab> tl2 = new TabListener<angeboteTab>(this,
-	        		nav_angebote, angeboteTab.class);
+	        tab.setText(nav_angebot);
+	        TabListener<angebotTab> tl2 = new TabListener<angebotTab>(this,
+	        		nav_angebot, angebotTab.class);
 	        tab.setTabListener(tl2);
 	        actionBar.addTab(tab);
 	        
