@@ -15,12 +15,10 @@ public interface BewertungResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response getAllBewertungen();
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response createBewertung(JAXBElement<Bewertung> bewertung);
 
 	@GET

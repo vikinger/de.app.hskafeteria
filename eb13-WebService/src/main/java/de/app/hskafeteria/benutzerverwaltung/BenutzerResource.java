@@ -16,7 +16,6 @@ import javax.xml.bind.JAXBElement;
 public interface BenutzerResource {
 	@POST
 	@Consumes("application/xml")
-	@Path("/")
 	public Response createBenutzer(JAXBElement<Benutzer> benutzer);
 
 	@GET
@@ -26,7 +25,6 @@ public interface BenutzerResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response getAllBenutzers();
 	
 	@POST

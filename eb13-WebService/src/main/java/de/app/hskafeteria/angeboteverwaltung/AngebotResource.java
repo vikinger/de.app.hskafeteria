@@ -17,12 +17,10 @@ public interface AngebotResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response getAllAngebote();
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response createAngebot(JAXBElement<Angebot> angebot);
 	
 	@DELETE

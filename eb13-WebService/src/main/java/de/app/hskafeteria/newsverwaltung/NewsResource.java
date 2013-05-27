@@ -17,12 +17,10 @@ public interface NewsResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response getAllNews();
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response createNews(JAXBElement<News> news);
 	
 	@DELETE

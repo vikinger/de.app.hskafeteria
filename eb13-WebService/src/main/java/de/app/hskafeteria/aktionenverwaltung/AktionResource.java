@@ -17,12 +17,10 @@ public interface AktionResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response getAllAktionen();
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
-	@Path("/")
 	public Response createAktion(JAXBElement<Aktion> aktion);
 	
 	@DELETE
