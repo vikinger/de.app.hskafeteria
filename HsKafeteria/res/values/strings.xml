@@ -30,8 +30,7 @@
     <string name="logout">Logout</string>
     <string name="content_new">Neuen Inhalt eintragen</string>
     <string name="insert_news">News hinzufügen</string>
-    <string name="insert_angebot">Angebote hinzufügen</string>
-    <string name="insert_aktion">Aktion hinzufügen</string>
+    <string name="insert_angebot">Angebot hinzufügen</string>
     <string name="hint_titel_newnews">Titel</string>
     <string name="hint_inhalt_newnews">Inhalt</string>
     <string name="newnews_insert_button">Eintragen</string>

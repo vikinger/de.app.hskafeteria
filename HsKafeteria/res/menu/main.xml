@@ -40,11 +40,6 @@
                 android:orderInCategory="200"
                 android:showAsAction="never"
                 android:title="@string/insert_angebot"/>
-            <item
-                android:id="@+id/insert_aktion"
-                android:orderInCategory="300"
-                android:showAsAction="never"
-                android:title="@string/insert_aktion"/>
         </menu>
     </item>
 

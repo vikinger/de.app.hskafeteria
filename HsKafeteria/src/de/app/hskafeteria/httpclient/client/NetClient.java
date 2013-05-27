@@ -24,15 +24,15 @@ import de.app.hskafeteria.httpclient.domain.AktionenList;
 
 public class NetClient {
 //	public static String BASE_URL = "http://www.iwi.hs-karlsruhe.de/ebatc/eb13-WebService/rest/";
-	public static String BASE_URL = "http://192.168.178.37/eb13-WebService/rest/";
+	public static String BASE_URL = "http://192.168.178.36/eb13-WebService/rest/";
 
 	public static final String BENUTZER = "Benutzer/";
 	public static final String NEWS = "News/";
 	public static final String AKTION = "Aktion/";
 	public static final String ANGEBOT = "Angebot/";
 	public static final String NEWPASSWORD = "newpassword/";
-	public static final String ANGELEGT = "angelegt";
-	public static final String LOGIN = "Login";
+	public static final String ANGELEGT = "angelegt/";
+	public static final String LOGIN = "Login/";
 	public static enum DomainType {Benutzer, Benutzers, News, NewsList, Aktion, AktionenList, Angebot, AngeboteList};
 
 	public int changePassword(String userEmail, String newPassword) {
@@ -116,7 +116,7 @@ public class NetClient {
 	 * @return 401 if login failed
 	 */
 	public int login(String username, String password) {
-		String uri = BASE_URL + LOGIN + "/" + username + "-" + password;
+		String uri = BASE_URL + LOGIN + username + "-" + password;
 		int result = getResponseCode(uri);
 		return result;
 	}
@@ -128,7 +128,7 @@ public class NetClient {
 	}
 
 	public Benutzer getBenutzerByEmail(String email) {
-		String uri = BASE_URL + BENUTZER + "/" + email ;
+		String uri = BASE_URL + BENUTZER + email ;
 		Benutzer benutzer = (Benutzer) get(uri, DomainType.Benutzer);
 		return benutzer;
 	}

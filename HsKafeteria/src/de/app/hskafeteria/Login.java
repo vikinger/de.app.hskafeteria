@@ -1,6 +1,7 @@
 package de.app.hskafeteria;
 
 import de.app.hskafeteria.httpclient.client.NetClient;
+import de.app.hskafeteria.httpclient.domain.Benutzer;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
@@ -20,6 +21,7 @@ public class Login extends Activity {
 	private Context ctx;
 	private String textEmail = null;
 	private String nameOfUser = null;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -74,7 +76,7 @@ public class Login extends Activity {
 					Toast.LENGTH_LONG).show();
 			return;
 		}
-//		new GetUserNameAsyncTask().execute(textEmail);
+		new GetUserNameAsyncTask().execute(textEmail);
 
 		
 		new LoginAsyncTask().execute(textEmail, textPassword);
@@ -109,30 +111,30 @@ public class Login extends Activity {
 
 	}
 	
-//	private class GetUserNameAsyncTask extends AsyncTask<String, Void, Benutzer> {
-//		
-//		@Override
-//		protected Benutzer doInBackground(String... params) {
-//			String email = params[0];
-//			
-//			NetClient netClient = new NetClient();
-//			return netClient.getBenutzerByEmail(email);
-//
-//		}
-//		
-//		@Override
-//		protected void onPostExecute(Benutzer result) {
-//			super.onPostExecute(result);
-//			if (result != null) {
-//				nameOfUser = result.getVorname().toString() + " " + result.getNachname().toString();
-//				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
-//				prefs.edit().putString("logged_in_user_name", nameOfUser).commit();
-//			}
-//			else {
-//				Toast.makeText(Login.this, "Email/Passwort falsch", Toast.LENGTH_LONG).show();
-//			}
-//		}
-//	}
+	private class GetUserNameAsyncTask extends AsyncTask<String, Void, Benutzer> {
+		
+		@Override
+		protected Benutzer doInBackground(String... params) {
+			String email = params[0];
+			
+			NetClient netClient = new NetClient();
+			return netClient.getBenutzerByEmail(email);
+
+		}
+		
+		@Override
+		protected void onPostExecute(Benutzer result) {
+			super.onPostExecute(result);
+			if (result != null) {
+				nameOfUser = result.getVorname() + " " + result.getNachname();
+				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+				prefs.edit().putString("logged_in_user_name", nameOfUser).commit();
+			}
+			else {
+				Toast.makeText(Login.this, "Email/Passwort falsch", Toast.LENGTH_LONG).show();
+			}
+		}
+	}
 }
 
 
