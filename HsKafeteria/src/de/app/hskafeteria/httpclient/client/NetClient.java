@@ -25,8 +25,8 @@ import de.app.hskafeteria.httpclient.domain.AktionenList;
 
 
 public class NetClient {
-	public static String BASE_URL = "http://www.iwi.hs-karlsruhe.de/ebatc/eb13-WebService/rest/";
-//	public static String BASE_URL = "http://192.168.178.37/eb13-WebService/rest/";
+//	public static String BASE_URL = "http://www.iwi.hs-karlsruhe.de/ebatc/eb13-WebService/rest/";
+	public static String BASE_URL = "http://192.168.178.37/eb13-WebService/rest/";
 
 	public static final String BENUTZER = "Benutzer/";
 	public static final String NEWS = "News/";

@@ -20,13 +20,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class AngebotDetails extends Activity{
 
-	String benutzerId = null;
-	ListView listview;
+	private ListView listview;
+	private RatingBar ratingBar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,9 @@ public class AngebotDetails extends Activity{
 			((TextView) view.findViewById(R.id.angebotTitel)).setText(angebot.getTitel());
 			((TextView) view.findViewById(R.id.angebotZutaten)).setText(angebot.getZutaten());
 			((TextView) view.findViewById(R.id.angebotPreis)).setText(Integer.toString(angebot.getPreis()));
+			
+			ratingBar = (RatingBar) findViewById(R.id.ratingBar1);
+
 		}
 	}
 	
@@ -155,11 +159,16 @@ public class AngebotDetails extends Activity{
 			else {
 
 				ArrayList<String> list = new ArrayList<String>();
+				float punkte = 0; 
 				
 				for (int z = 0; z < result.size(); z++) {
 
 			          list.add(result.get(z).getKommentar());
+			          punkte = punkte + result.get(z).getPunkte();
 				}
+				
+				
+				ratingBar.setRating(punkte/result.size());
 				
 		        StableArrayAdapter adapter = new StableArrayAdapter(getBaseContext(), android.R.layout.simple_list_item_1, list);
 				listview.setAdapter(adapter);
