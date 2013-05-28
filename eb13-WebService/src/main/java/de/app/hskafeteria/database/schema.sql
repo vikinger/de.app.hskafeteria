@@ -6,6 +6,8 @@ DROP TABLE bewertung;
 
 DROP SEQUENCE benutzer_id_sequence;
 DROP SEQUENCE news_id_sequence;
+DROP SEQUENCE aktion_id_sequence;
+DROP SEQUENCE angebot_id_sequence;
 DROP SEQUENCE bewertung_id_sequence;
 
 CREATE TABLE benutzer (
@@ -48,17 +50,27 @@ CREATE TABLE bewertung (
 );
 
 CREATE SEQUENCE benutzer_id_sequence
-  START WITH 4
+  START WITH 1
   INCREMENT BY 1
   CACHE 100;
   
 CREATE SEQUENCE news_id_sequence
-  START WITH 4
+  START WITH 1
+  INCREMENT BY 1
+  CACHE 100;
+  
+CREATE SEQUENCE aktion_id_sequence
+  START WITH 1
+  INCREMENT BY 1
+  CACHE 100;
+  
+CREATE SEQUENCE angebot_id_sequence
+  START WITH 1
   INCREMENT BY 1
   CACHE 100;
   
 CREATE SEQUENCE bewertung_id_sequence
-  START WITH 4
+  START WITH 1
   INCREMENT BY 1
   CACHE 100;
   
@@ -77,6 +89,24 @@ CREATE OR REPLACE TRIGGER trigger_news
 BEGIN
   SELECT news_id_sequence.nextval
     INTO :new.n_id
+    FROM dual;
+END;
+
+CREATE OR REPLACE TRIGGER trigger_aktion
+  BEFORE INSERT ON aktion
+  FOR EACH ROW
+BEGIN
+  SELECT aktion_id_sequence.nextval
+    INTO :new.a_id
+    FROM dual;
+END;
+
+CREATE OR REPLACE TRIGGER trigger_angebot
+  BEFORE INSERT ON angebot
+  FOR EACH ROW
+BEGIN
+  SELECT angebot_id_sequence.nextval
+    INTO :new.an_id
     FROM dual;
 END;
 
