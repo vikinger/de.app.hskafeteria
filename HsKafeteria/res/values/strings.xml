@@ -35,5 +35,11 @@
     <string name="hint_inhalt_newnews">Inhalt</string>
     <string name="newnews_insert_button">Eintragen</string>
     <string name="title_activity_newnews">Neue News</string>
+    <string name="title_activity_angebotdetails">Details zum Angebot</string>
+    <string name="zutaten">Zutaten</string>
+    <string name="preis">Preis</string>
+    <string name="angebot_zutaten">Hier stehen die Zutaten</string>
+    <string name="angebot_preis">Hier steht der Preis</string>
+    <string name="angebot_titel">Angebot Titel</string>
 
 </resources>

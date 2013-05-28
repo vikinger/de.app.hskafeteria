@@ -11,12 +11,14 @@ import de.app.hskafeteria.httpclient.domain.Kategorie;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.Toast;
 	 
 public class angebotTab extends Fragment {
@@ -25,10 +27,13 @@ public class angebotTab extends Fragment {
     private ArrayList<Kategorie> katList = new ArrayList<Kategorie>();
     private AngeboteListAdapter listAdapter;
     private ExpandableListView expandableList;
+    private Context ctx;
 	 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		
+		ctx = this.getActivity();
 		
 		View inflatedView = inflater
 				.inflate(R.layout.angebot, container, false);
@@ -37,33 +42,42 @@ public class angebotTab extends Fragment {
 
 		new AngebotAsyncTask(this.getActivity()).execute();
 
-//		// listener for child row click
-//		expandableList.setOnChildClickListener(myListItemClicked);
-//		
+		// listener for child row click
+		expandableList.setOnChildClickListener(myListItemClicked);
+		
 //		// listener for group heading click
 //		expandableList.setOnGroupClickListener(myListGroupClicked);
+		
 
 		return inflatedView;
     }
 	
-//	 //our child listener
-//	 private OnChildClickListener myListItemClicked =  new OnChildClickListener() {
-//	 
-//	  public boolean onChildClick(ExpandableListView parent, View v,
-//	    int groupPosition, int childPosition, long id) {
-//	    
-//	   //get the group header
-//	   Kategorie headerInfo = katList.get(groupPosition);
-//	   //get the child info
-//	   Angebot detailInfo =  headerInfo.getAngebote().get(childPosition);
-//	   //display it or do something with it
-//	   Toast.makeText(getActivity(), "Clicked on Detail " + headerInfo.getTitel()
-//	     + "/" + detailInfo.getTitel(), Toast.LENGTH_LONG).show();
-//	   return false;
-//	  }
-//	   
-//	 };
-//	 
+	 //our child listener
+	 private OnChildClickListener myListItemClicked =  new OnChildClickListener() {
+	 
+	  public boolean onChildClick(ExpandableListView parent, View v,
+	    int groupPosition, int childPosition, long id) {
+	    
+	   //get the group header
+	   Kategorie kategorie = katList.get(groupPosition);
+	   
+	   //get the child info
+	   Angebot angebot =  kategorie.getAngebote().get(childPosition);
+	   
+	   Bundle korb = new Bundle();
+	   korb.putString("angebotTitel", angebot.getTitel());
+	   korb.putParcelable("angebot", angebot);
+	   
+	   Intent in = new Intent(ctx, AngebotDetails.class);
+	   in.putExtras(korb);
+	   
+	   startActivity(in);
+	   
+	   return false;
+	  }
+	   
+	 };
+	 
 //	 //our group listener
 //	 private OnGroupClickListener myListGroupClicked =  new OnGroupClickListener() {
 //	 
@@ -140,6 +154,7 @@ public class angebotTab extends Fragment {
 
 					// get the children for the group
 					ArrayList<Angebot> angebotList = kategorie.getAngebote();
+				
 
 					// create a new child and add that to the group
 					angebotList.add(result.get(z));
