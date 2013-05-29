@@ -151,6 +151,16 @@ public class NetClient {
 		Bewertungen bewertungen = (Bewertungen) get(uri, DomainType.Bewertungen);
 		return bewertungen;
 	}
+	
+	public Integer createBewertung(Bewertung bewertung) {
+		Integer responseCode = -1;
+		String uri = BASE_URL + BEWERTUNG;
+		String xmlStr = serialize(bewertung);
+		if (xmlStr != null) {
+			responseCode = post(uri, xmlStr);
+		}
+		return responseCode;
+	}
 
 	private Object get(String uri, DomainType type) {
 		Object obj = null;
