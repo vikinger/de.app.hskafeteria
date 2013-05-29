@@ -31,7 +31,7 @@ public class Bewertung implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="bw_id")
+	@Column(name="bw_id",nullable = false,unique = true, updatable = false)
 	private Integer bwId;
 
 	@Column(nullable = false)

@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import de.app.hskafeteria.angeboteverwaltung.Angebot;
-import de.app.hskafeteria.angeboteverwaltung.AngebotDao;
 import de.app.hskafeteria.benutzerverwaltung.Benutzer;
 import de.app.hskafeteria.benutzerverwaltung.BenutzerDao;
 import de.app.hskafeteria.exception.DatabaseException;
@@ -23,7 +21,6 @@ public class BewertungDaoImpl implements BewertungDao{
 	private HibernateTemplate hibernateTemplate;
 	@Autowired
 	private BenutzerDao benutzerDao;
-	private AngebotDao angebotDao;
 
 	/**
 	 * Insert a new Bewertung into the database.
@@ -32,17 +29,11 @@ public class BewertungDaoImpl implements BewertungDao{
 	@Override
 	public void createBewertung(final Bewertung bewertung) {
 		Benutzer benutzer;
-		Angebot angebot;
-		bewertung.setBwId(null);
+
 		if (bewertung.getBenutzer() != null) {
 			String email = bewertung.getBenutzer().getEmail();
 			benutzer = benutzerDao.getBenutzerByEmail(email);
 			bewertung.setBenutzer(benutzer);
-		}
-		if (bewertung.getAngebot() != null) {
-			String titel = bewertung.getAngebot().getTitel();
-			angebot = angebotDao.getAngebotByTitel(titel);
-			bewertung.setAngebot(angebot);
 		}
 		try {
 			HibernateCallback<Object> callback = new HibernateCallback<Object>() {

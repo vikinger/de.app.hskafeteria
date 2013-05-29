@@ -16,6 +16,8 @@ import de.app.hskafeteria.httpclient.domain.Angebot;
 import de.app.hskafeteria.httpclient.domain.AngeboteList;
 import de.app.hskafeteria.httpclient.domain.Benutzer;
 import de.app.hskafeteria.httpclient.domain.Benutzers;
+import de.app.hskafeteria.httpclient.domain.Bewertung;
+import de.app.hskafeteria.httpclient.domain.Bewertungen;
 import de.app.hskafeteria.httpclient.domain.News;
 import de.app.hskafeteria.httpclient.domain.NewsList;
 import de.app.hskafeteria.httpclient.domain.Aktion;
@@ -30,10 +32,11 @@ public class NetClient {
 	public static final String NEWS = "News/";
 	public static final String AKTION = "Aktion/";
 	public static final String ANGEBOT = "Angebot/";
+	public static final String BEWERTUNG = "Bewertung/";
 	public static final String NEWPASSWORD = "newpassword/";
 	public static final String ANGELEGT = "angelegt/";
 	public static final String LOGIN = "Login/";
-	public static enum DomainType {Benutzer, Benutzers, News, NewsList, Aktion, AktionenList, Angebot, AngeboteList};
+	public static enum DomainType {Benutzer, Benutzers, News, NewsList, Aktion, AktionenList, Angebot, AngeboteList, Bewertung, Bewertungen};
 
 	public int changePassword(String userEmail, String newPassword) {
 		String uri = BASE_URL + BENUTZER + NEWPASSWORD + userEmail + "-" + newPassword;
@@ -137,6 +140,22 @@ public class NetClient {
 		Integer responseCode = -1;
 		String uri = BASE_URL + BENUTZER;
 		String xmlStr = serialize(benutzer);
+		if (xmlStr != null) {
+			responseCode = post(uri, xmlStr);
+		}
+		return responseCode;
+	}
+	
+	public Bewertungen getBewertungenByAngebot(String angebotTitel) {
+		String uri = BASE_URL + BEWERTUNG + angebotTitel ;
+		Bewertungen bewertungen = (Bewertungen) get(uri, DomainType.Bewertungen);
+		return bewertungen;
+	}
+	
+	public Integer createBewertung(Bewertung bewertung) {
+		Integer responseCode = -1;
+		String uri = BASE_URL + BEWERTUNG;
+		String xmlStr = serialize(bewertung);
 		if (xmlStr != null) {
 			responseCode = post(uri, xmlStr);
 		}
@@ -274,6 +293,10 @@ public class NetClient {
 				return serializer.read(Angebot.class, xmlStr);
 			case AngeboteList:
 				return serializer.read(AngeboteList.class, xmlStr);
+			case Bewertung:
+				return serializer.read(Bewertung.class, xmlStr);
+			case Bewertungen:
+				return serializer.read(Bewertungen.class, xmlStr);
 			default:
 				return null;
 			}
