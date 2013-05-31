@@ -143,7 +143,7 @@ public class NewsDaoImpl implements NewsDao{
 				public List<News> doInHibernate(Session session)
 						throws HibernateException, SQLException {
 					Query query = session.createQuery
-							("FROM News");
+							("FROM News ORDER BY Datum DESC");
 
 					return query.list();
 				}
