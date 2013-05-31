@@ -16,10 +16,9 @@
             android:layout_marginTop="21dp"
             android:orientation="vertical" >
                     
-
         <EditText
             android:id="@+id/tx_newnews_titel"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginBottom="10dp"
             android:ems="10"
@@ -30,13 +29,12 @@
 
         <EditText
             android:id="@+id/tx_newnews_inhalt"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="@string/hint_inhalt_newnews"
-            android:inputType="text"
-            android:maxLines="1" />
+            android:inputType="textMultiLine" />
 
         <Button
             android:id="@+id/bt_newnews_insert"

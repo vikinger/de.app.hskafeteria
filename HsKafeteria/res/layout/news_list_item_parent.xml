@@ -11,16 +11,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:padding="10dp"
         android:textSize="20sp"
+        android:textStyle="bold"
         tools:ignore="SelectableText" />
     
     <TextView
         android:id="@+id/list_item_text_view_news_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:gravity="right"
         android:padding="5dp"
         android:textSize="12sp"

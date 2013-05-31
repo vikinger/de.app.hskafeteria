@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:showDividers="middle" >
+
+        <RadioButton
+            android:id="@+id/radioGetraenk"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:text="@string/kategorie_getraenk"
+            android:textSize="24dp" />
+
+        <RadioButton
+            android:id="@+id/radioBelegteBroetchen"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:text="@string/kategorie_belegtebroetchen"
+            android:textSize="24dp" />
+
+        <RadioButton
+            android:id="@+id/radioWarmesEssen"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:text="@string/kategorie_warmesessen"
+            android:textSize="24dp" />
+
+        <RadioButton
+            android:id="@+id/radioObst"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:text="@string/kategorie_obst"
+            android:textSize="24dp" />
+
+        <RadioButton
+            android:id="@+id/radioSuessigkeiten"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:text="@string/kategorie_suessigkeiten"
+            android:textSize="24dp" />
+
+        <RadioButton
+            android:id="@+id/radioSonstiges"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:text="@string/kategorie_sonstiges"
+            android:textSize="24dp" />
+    </RadioGroup>
+
+</LinearLayout>

@@ -8,7 +8,7 @@
     <string name="nav_aktionen">Aktionen</string>
     <string name="nav_info">Info</string>
     <string name="content">Inhalt</string>
-    <string name="infostring_adresse">Caféteria Moltkestraße 30</string>
+    <string name="infostring_adresse">Caféteria Moltkestraße 30 - Karlsruhe</string>
     <string name="infostring_oeffnungszeiten">Öffnungszeiten</string>
     <string name="infostring_mo_do">Mo. - Do. 7:30 - 16:00 Uhr</string>
     <string name="infostring_fr">Fr. 7:30 - 14:00 Uhr</string>
@@ -33,13 +33,37 @@
     <string name="insert_angebot">Angebot hinzufügen</string>
     <string name="hint_titel_newnews">Titel</string>
     <string name="hint_inhalt_newnews">Inhalt</string>
+    <string name="hint_artikelname_newangebot">Artikelname</string>
+    <string name="hint_kategorie_newangebot">Kategorie</string>
+    <string name="hint_zutaten_newangebot">Zutaten</string>
+    <string name="hint_preis_newangebot">Preis in Euro (€)</string>
     <string name="newnews_insert_button">Eintragen</string>
+    <string name="newangebot_insert_button">Eintragen</string>
     <string name="title_activity_newnews">Neue News</string>
+    <string name="title_activity_newangebot">Neues Angebot</string>
     <string name="title_activity_angebotdetails">Details zum Angebot</string>
     <string name="zutaten">Zutaten</string>
     <string name="preis">Preis</string>
     <string name="angebot_zutaten">Hier stehen die Zutaten</string>
     <string name="angebot_preis">Hier steht der Preis</string>
     <string name="angebot_titel">Angebot Titel</string>
+    <string name="btn_kategorieauswahl">Übernehmen</string>
+    <string name="kategorie_getraenk">Getränke</string>
+    <string name="kategorie_belegtebroetchen">Belegte Brötchen</string>
+    <string name="kategorie_warmesessen">Warmes Essen</string>
+    <string name="kategorie_obst">Obst</string>
+    <string name="kategorie_suessigkeiten">Süßigkeiten</string>
+    <string name="kategorie_sonstiges">Sonstiges</string>
+
+    <string-array name="array_kategorien">
+        <item>Getränke</item>
+        <item>Belegte Brötchen</item>
+        <item>Warmes Essen</item>
+        <item>Obst</item>
+        <item>Süßigkeiten</item>
+        <item>Sonstiges</item>
+    </string-array>
+    
+    <color name="light_gray">#F5F5F5</color>
 
 </resources>

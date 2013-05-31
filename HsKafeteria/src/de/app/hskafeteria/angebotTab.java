@@ -33,6 +33,9 @@ public class angebotTab extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
+	    kategorien = new LinkedHashMap<String, Kategorie>();
+	    katList = new ArrayList<Kategorie>();
+		
 		ctx = this.getActivity();
 		
 		View inflatedView = inflater

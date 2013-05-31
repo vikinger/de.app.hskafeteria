@@ -41,6 +41,7 @@
         <activity android:name="Registrierung" android:label="@string/title_activity_registration"></activity>
         <activity android:name="Settings" android:label="@string/title_activity_settings"></activity>
         <activity android:name="newNews" android:label="@string/title_activity_newnews"></activity>
+        <activity android:name="newAngebot" android:label="@string/title_activity_newangebot"></activity>
         <activity android:name="AngebotDetails" android:label="@string/title_activity_angebotdetails"></activity>
 
      <meta-data

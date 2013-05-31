@@ -12,6 +12,8 @@ import java.net.URL;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
+import de.app.hskafeteria.httpclient.domain.Aktion;
+import de.app.hskafeteria.httpclient.domain.AktionenList;
 import de.app.hskafeteria.httpclient.domain.Angebot;
 import de.app.hskafeteria.httpclient.domain.AngeboteList;
 import de.app.hskafeteria.httpclient.domain.Benutzer;
@@ -20,13 +22,11 @@ import de.app.hskafeteria.httpclient.domain.Bewertung;
 import de.app.hskafeteria.httpclient.domain.Bewertungen;
 import de.app.hskafeteria.httpclient.domain.News;
 import de.app.hskafeteria.httpclient.domain.NewsList;
-import de.app.hskafeteria.httpclient.domain.Aktion;
-import de.app.hskafeteria.httpclient.domain.AktionenList;
 
 
 public class NetClient {
 //	public static String BASE_URL = "http://www.iwi.hs-karlsruhe.de/ebatc/eb13-WebService/rest/";
-	public static String BASE_URL = "http://192.168.178.37/eb13-WebService/rest/";
+	public static String BASE_URL = "http://192.168.178.25/eb13-WebService/rest/";
 
 	public static final String BENUTZER = "Benutzer/";
 	public static final String NEWS = "News/";
@@ -36,7 +36,8 @@ public class NetClient {
 	public static final String NEWPASSWORD = "newpassword/";
 	public static final String ANGELEGT = "angelegt/";
 	public static final String LOGIN = "Login/";
-	public static enum DomainType {Benutzer, Benutzers, News, NewsList, Aktion, AktionenList, Angebot, AngeboteList, Bewertung, Bewertungen};
+	public static final String KATEGORIE = "Kategorie/";
+	public static enum DomainType {Benutzer, Benutzers, News, NewsList, Aktion, AktionenList, Angebot, AngeboteList, Bewertung, Bewertungen, Kategorie, Kategories};
 
 	public int changePassword(String userEmail, String newPassword) {
 		String uri = BASE_URL + BENUTZER + NEWPASSWORD + userEmail + "-" + newPassword;

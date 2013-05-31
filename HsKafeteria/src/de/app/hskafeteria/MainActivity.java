@@ -107,6 +107,9 @@ public class MainActivity extends Activity {
 		case R.id.insert_news:
 			startActivity(new Intent(this, newNews.class));
 			return true;
+		case R.id.insert_angebot:
+			startActivity(new Intent(this, newAngebot.class));
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}

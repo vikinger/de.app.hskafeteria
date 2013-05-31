@@ -1,0 +1,83 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/newangebot_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txv_newangebot_ueberschrift"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/tx_newangebot_artikelname"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="@string/hint_artikelname_newangebot"
+                android:inputType="text"
+                android:maxLines="1"
+                android:selectAllOnFocus="false" />
+
+            <EditText
+                android:id="@+id/tx_newangebot_kategorie"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="@string/hint_kategorie_newangebot"
+                android:inputType="text"
+                android:maxLines="1"
+                android:focusable="false"
+                android:selectAllOnFocus="false" />
+
+            <EditText
+                android:id="@+id/tx_newangebot_zutaten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="@string/hint_zutaten_newangebot"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                android:id="@+id/tx_newangebot_preis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="@string/hint_preis_newangebot"
+                android:inputType="numberDecimal"
+                android:digits="0123456789," >
+
+                <requestFocus />
+            </EditText>
+
+            <Button
+                android:id="@+id/bt_newangebot_insert"
+                android:layout_width="220dp"
+                android:layout_height="42dp"
+                android:maxLines="1"
+                android:text="@string/newangebot_insert_button" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txv_newangebot_ueberschrift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:text="@string/title_activity_newangebot"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+</ScrollView>

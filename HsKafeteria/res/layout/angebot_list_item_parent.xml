@@ -7,8 +7,10 @@
     <TextView
         android:id="@+id/angebot_kategorie"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="35sp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+                android:padding="12dp"
+        android:textSize="20sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" />
  
