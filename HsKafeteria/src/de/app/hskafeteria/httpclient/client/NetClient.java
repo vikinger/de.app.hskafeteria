@@ -94,6 +94,10 @@ public class NetClient {
 	public AngeboteList getAllAngebote() {
 		String uri = BASE_URL + ANGEBOT;
 		AngeboteList angeboteList = (AngeboteList) get(uri, DomainType.AngeboteList);
+		for (int i=0; i<angeboteList.size();i++){
+			Double preis = angeboteList.getAngeboteList().get(i).getPreis();
+			angeboteList.getAngeboteList().get(i).setPreis(preis/100);
+		}
 		return angeboteList;
 	}
 

@@ -109,7 +109,12 @@ public class AngebotDetails extends Activity {
 
 					@Override
 					public void onClick(View v) {
-
+						if(kommentar.getText().toString().isEmpty())
+						{
+							Toast.makeText(getBaseContext(), "Es muss ein Kommentar eingegeben werden!",
+									Toast.LENGTH_SHORT).show();
+							return;
+						}
 						bewertungAnlegen();
 						finish();
 						startActivity(getIntent());
@@ -229,7 +234,7 @@ public class AngebotDetails extends Activity {
 					.getTitel());
 			((TextView) view.findViewById(R.id.angebotZutaten)).setText(angebot
 					.getZutaten());
-			((TextView) view.findViewById(R.id.angebotPreis)).setText(Integer
+			((TextView) view.findViewById(R.id.angebotPreis)).setText(Double
 					.toString(angebot.getPreis()));
 
 			ratingBar = (RatingBar) findViewById(R.id.ratingBar1);

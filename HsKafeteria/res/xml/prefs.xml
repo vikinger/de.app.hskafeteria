@@ -16,10 +16,7 @@
     <PreferenceCategory
         android:summary="Optionen für Benutzer"
         android:title="Optionen" >
-        <EditTextPreference
-            android:inputType="textPassword"
-            android:key="logged_in_password"
-            android:title="Passwort ändern" />
+        <Preference android:title="Passwort ändern" android:key="changePassword"></Preference>
     </PreferenceCategory>
 
 </PreferenceScreen>

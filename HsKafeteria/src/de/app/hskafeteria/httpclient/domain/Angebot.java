@@ -18,7 +18,7 @@ public class Angebot implements Parcelable{
 	@Element
 	private String zutaten;
 	@Element
-	private int preis;
+	private double preis;
 
 	public Angebot() {
 	}
@@ -63,11 +63,11 @@ public class Angebot implements Parcelable{
 		this.zutaten = zutaten;
 	}
 	
-	public int getPreis() {
+	public double getPreis() {
 		return this.preis;
 	}
 
-	public void setPreis(int preis) {
+	public void setPreis(double preis) {
 		this.preis = preis;
 	}
 	
@@ -83,7 +83,7 @@ public class Angebot implements Parcelable{
 		dest.writeString(art);
 		dest.writeString(titel);
 		dest.writeString(zutaten);
-		dest.writeInt(preis);
+		dest.writeDouble(preis);
 	}
 
 	@Override

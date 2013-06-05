@@ -21,7 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginBottom="10dp"
-                android:ems="10"
                 android:hint="@string/hint_artikelname_newangebot"
                 android:inputType="text"
                 android:maxLines="1"
@@ -36,8 +35,7 @@
                 android:hint="@string/hint_kategorie_newangebot"
                 android:inputType="text"
                 android:maxLines="1"
-                android:focusable="false"
-                android:selectAllOnFocus="false" />
+                android:focusable="false" />
 
             <EditText
                 android:id="@+id/tx_newangebot_zutaten"
