@@ -28,8 +28,7 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 		addPreferencesFromResource(R.xml.prefs);
 
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
-		prefs.registerOnSharedPreferenceChangeListener(this);
-		final String name = prefs.getString("logged_in_user_name", "");
+		final String name = prefs.getString("Test", "");
 		final String email = prefs.getString("logged_in_user", "");
 		
 		Preference loggedInUserPref = findPreference("logged_in_user_name");

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:textStyle="bold"
+        android:text="@string/infostring_adresse"
         android:textSize="18sp"
-        android:text="@string/infostring_adresse" />
+        android:textStyle="bold" />
 
     <CheckedTextView
         android:id="@+id/checkedTextView1"
@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="8dp"
-        android:textStyle="bold"
-        android:text="@string/infostring_oeffnungszeiten" />
+        android:text="@string/infostring_oeffnungszeiten"
+        android:textStyle="bold" />
 
     <CheckedTextView
         android:id="@+id/CheckedTextView01"
@@ -42,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="8dp"
-        android:textStyle="bold"
-        android:text="@string/infostring_vorlesungsfrei" />
+        android:text="@string/infostring_vorlesungsfrei"
+        android:textStyle="bold" />
 
     <CheckedTextView
         android:id="@+id/CheckedTextView05"
@@ -58,6 +58,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:text="@string/infostring_fr" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textStyle="bold"
+        android:text="@string/btn_route" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map"

@@ -27,6 +27,8 @@ public class MainActivity extends Activity {
 	        ActionBar actionBar = getActionBar();
 	 
 	        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+	        
+	        startService(new Intent(this, LocationService.class));
 	 
 	        String nav_news = getResources().getString(R.string.nav_news);
 	        Tab tab = actionBar.newTab();

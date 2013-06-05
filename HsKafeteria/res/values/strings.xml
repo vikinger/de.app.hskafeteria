@@ -54,6 +54,8 @@
     <string name="kategorie_obst">Obst</string>
     <string name="kategorie_suessigkeiten">Süßigkeiten</string>
     <string name="kategorie_sonstiges">Sonstiges</string>
+<string name="btn_route">Zeig mir den Weg!</string>
+<string name="distance"></string>
 
     <string-array name="array_kategorien">
         <item>Getränke</item>
