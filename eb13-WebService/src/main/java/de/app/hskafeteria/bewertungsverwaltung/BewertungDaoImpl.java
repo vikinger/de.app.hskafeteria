@@ -123,8 +123,7 @@ public class BewertungDaoImpl implements BewertungDao{
 				public List<Bewertung> doInHibernate(Session session)
 						throws HibernateException, SQLException {
 					Query queryBewertung = session.createQuery
-							("FROM Bewertung b "+
-									"where b.angebot.titel = :titel");
+							("FROM Bewertung b where b.angebot.titel = :titel ORDER BY b.datum DESC");
 					queryBewertung.setParameter("titel", titel);
 					return queryBewertung.list();
 				}

@@ -45,42 +45,42 @@ VALUES (
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Getraenke', 'Coca Cola', 'Schwarze Bruehe mit Zucker und Coffein', '100'
+	'Getränke', 'Coca-Cola', 'Wasser, Kohlensäure, Farbstoff E150d, Konservierungsstoffe, Aroma, Coffein', '100'
 );
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Getraenke', 'Fanta', 'Gelbe Bruehe mit Zucker', '100'
+	'Getränke', 'Fanta', 'Wasser, Kohlensäure, Farbstoff E104, Konservierungsstoffe, Aroma', '100'
 );
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Suesses', 'Snickers', 'Schokoladenriegel mit Nüssen', '50'
+	'Süßigkeiten', 'Snickers', 'Schokolade, Erdnüsse, Karamell', '50'
 );
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Suesses', 'Bounty', 'Schokoladenriegel mit Kokosflocken', '50'
+	'Süßigkeiten', 'Bounty', 'Schokolade, Kokos', '50'
 );
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Belegte Broetchen', 'Salamibroetchen', 'Salami, Butter, Salat, Käse', '150'
+	'Belegte Brötchen', 'Salamibrötchen', 'Salami, Butter, Salat, Käse', '150'
 );
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Belegte Broetchen', 'Lyonerbroetchen', 'Lyoner, Butter, Salat, Tomate', '150'
+	'Belegte Brötchen', 'Lyonerbrötchen', 'Lyoner, Butter, Salat, Tomate', '150'
 );
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Getraenke', 'Mezzo Mix', 'Braune Bruehe mit Zucker und Coffein', '100'
+	'Getränke', 'Mezzo Mix', 'Wasser, Kohlensäure, Farbstoff E150d, Konservierungsstoffe, Aroma', '100'
 );
 
 INSERT INTO bewertung (datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
 VALUES (
-	1369579440000, '5', 'Originale Coca Cola ist immernoch die beste', 1, 1
+	1369579440000, '5', 'Originale Coca Cola ist immernoch die Beste', 1, 1
 );
 
 INSERT INTO bewertung (datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
@@ -90,5 +90,5 @@ VALUES (
 
 INSERT INTO bewertung (datum, punkte, kommentar, BENUTZER_FK, ANGEBOT_FK)
 VALUES (
-	1369579440000, '4', 'Richtig gut und schoen kalt', 3, 1
+	1369579440000, '4', 'Richtig gut und schön kalt', 3, 1
 );
