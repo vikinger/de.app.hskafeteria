@@ -8,22 +8,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:textSize="14sp"
+        android:padding="7dp"
         android:layout_below="@+id/Zutaten"
         android:text="@string/angebot_zutaten" />
+    
+
 
     <TextView
         android:id="@+id/angebotPreis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:textSize="14sp"
+        android:padding="7dp"
         android:layout_below="@+id/Preis"
         android:text="@string/angebot_preis" />
 
     <RatingBar
-        android:id="@+id/ratingBar1"
+        android:id="@+id/ratingBarGesamt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
         android:isIndicator="true"
         android:layout_below="@+id/bewertungen" />
 
@@ -32,16 +41,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ratingBar1" >
-    </ListView>
+        android:padding="3dp"
+        android:textSize="6dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_below="@+id/ratingBarGesamt" >
 
+    </ListView>
+   
     <TextView
         android:id="@+id/angebotTitel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:textSize="28sp"
+        android:textStyle="bold"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/angebot_titel"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -51,7 +68,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/angebotTitel"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
         android:text="@string/zutaten"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -60,8 +79,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:textStyle="bold"
         android:layout_below="@+id/angebotZutaten"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/preis"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -70,7 +91,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/angebotPreis"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
         android:text="Bewertungen"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -78,8 +101,38 @@
         android:id="@+id/bw_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/ratingBar1"
-        android:layout_toRightOf="@+id/ratingBar1"
+        android:layout_alignTop="@+id/ratingBarGesamt"
+        android:layout_toRightOf="@+id/ratingBarGesamt"
         android:text="Bewerten" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_below="@+id/angebotTitel"
+        android:background="@android:color/darker_gray" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_below="@+id/angebotZutaten"
+        android:background="@android:color/darker_gray" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/angebotPreis"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentLeft="true"
+        android:background="@android:color/darker_gray" />
 
 </RelativeLayout>

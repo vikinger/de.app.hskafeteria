@@ -25,8 +25,8 @@ import de.app.hskafeteria.httpclient.domain.NewsList;
 
 
 public class NetClient {
-	public static String BASE_URL = "http://www.iwi.hs-karlsruhe.de/ebatc/eb13-WebService/rest/";
-//	public static String BASE_URL = "http://192.168.178.25/eb13-WebService/rest/";
+//	public static String BASE_URL = "http://www.iwi.hs-karlsruhe.de/ebatc/eb13-WebService/rest/";
+	public static String BASE_URL = "http://192.168.178.25/eb13-WebService/rest/";
 
 	public static final String BENUTZER = "Benutzer/";
 	public static final String NEWS = "News/";
@@ -94,10 +94,10 @@ public class NetClient {
 	public AngeboteList getAllAngebote() {
 		String uri = BASE_URL + ANGEBOT;
 		AngeboteList angeboteList = (AngeboteList) get(uri, DomainType.AngeboteList);
-		for (int i=0; i<angeboteList.size();i++){
-			Double preis = angeboteList.getAngeboteList().get(i).getPreis();
-			angeboteList.getAngeboteList().get(i).setPreis(preis/100);
-		}
+//		for (int i=0; i<angeboteList.size();i++){
+//			Double preis = angeboteList.getAngeboteList().get(i).getPreis();
+//			angeboteList.getAngeboteList().get(i).setPreis(preis/100);
+//		}
 		return angeboteList;
 	}
 

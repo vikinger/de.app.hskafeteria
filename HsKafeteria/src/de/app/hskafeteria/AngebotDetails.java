@@ -45,13 +45,24 @@ public class AngebotDetails extends Activity {
 	private RatingBar ratingBar;
 	private Button bewertenButton;
 	private Angebot angebot;
+	private Integer preis;
+	private Double preisD;
+	private String preisStr;
 	private EditText kommentar;
+	View popupView = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Bundle bundle = getIntent().getExtras();
 		angebot = bundle.getParcelable("angebot");
+		preis = bundle.getInt("angebotPreis");
+		
+		preisD = (double)preis;
+		preisD = preisD/100;
+		
+		preisStr = String.valueOf(preisD) + "0";
+		
 		setContentView(new AngebotUI(this, angebot));
 
 		ActionBar actionBar = getActionBar();
@@ -86,7 +97,7 @@ public class AngebotDetails extends Activity {
 
 				LayoutInflater layoutInflater = (LayoutInflater) getBaseContext()
 						.getSystemService(LAYOUT_INFLATER_SERVICE);
-				View popupView = layoutInflater
+				popupView = layoutInflater
 						.inflate(R.layout.bw_popup, null);
 				final PopupWindow popupWindow = new PopupWindow(popupView,
 						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
@@ -187,7 +198,7 @@ public class AngebotDetails extends Activity {
 
 		bewertung.setBenutzer(benutzer);
 		bewertung.setAngebot(angebot);
-		bewertung.setPunkte((int) ((RatingBar) findViewById(R.id.ratingBar1))
+		bewertung.setPunkte((int) ((RatingBar) popupView.findViewById(R.id.ratingBarNeueBewertung))
 				.getRating());
 
 		String textkommentar = kommentar.getText().toString();
@@ -202,10 +213,20 @@ public class AngebotDetails extends Activity {
 
 		bewertung.setDatum(formatter.getDateInLong());
 
-		if (!bewertung.isInputValid()) {
+//		if (!bewertung.isInputValid()) {
+//			Toast.makeText(getBaseContext(), "Die Eingabe war nicht korrekt",
+//					Toast.LENGTH_SHORT).show();
+		if ((bewertung.getPunkte() < 1))
+			{
+			Toast.makeText(getBaseContext(), "Bewertung muss mindestens einen Stern haben!",
+					Toast.LENGTH_SHORT).show();
+		} 
+		else if(bewertung.getKommentar().isEmpty()) 
+		{
 			Toast.makeText(getBaseContext(), "Die Eingabe war nicht korrekt",
 					Toast.LENGTH_SHORT).show();
-		} else {
+		}
+		else {
 			new BewertenAsyncTask().execute(bewertung);
 		}
 	}
@@ -234,10 +255,11 @@ public class AngebotDetails extends Activity {
 					.getTitel());
 			((TextView) view.findViewById(R.id.angebotZutaten)).setText(angebot
 					.getZutaten());
-			((TextView) view.findViewById(R.id.angebotPreis)).setText(Double
-					.toString(angebot.getPreis()));
+			((TextView) view.findViewById(R.id.angebotPreis)).setText(preisStr + "€");
+			int test = angebot.getPreis();
+			String test2 = "";
 
-			ratingBar = (RatingBar) findViewById(R.id.ratingBar1);
+			ratingBar = (RatingBar) findViewById(R.id.ratingBarGesamt);
 		}
 	}
 
@@ -304,20 +326,28 @@ public class AngebotDetails extends Activity {
 
 			Bewertungen bewertungen = netClient
 					.getBewertungenByAngebot(angebotTitel);
-			if (bewertungen != null)
+			if (bewertungen != null){
 				return bewertungen.getBewertungen();
-			else
+			}
+			else{
 				return null;
+			}
 		}
 
 		@Override
 		protected void onPostExecute(List<Bewertung> result) {
 			super.onPostExecute(result);
-			if ((result == null) || (result.size() == 0)) {
+			if (result == null) {
 				Toast.makeText(getBaseContext(),
 						"Die Bewertungen konnten nicht geladen werden.",
 						Toast.LENGTH_LONG).show();
-			} else {
+			} else if(result.size() == 0){
+				Toast.makeText(getBaseContext(),
+						"Es wurden noch keine Bewertungen zu diesem Artikel abgegeben.",
+						Toast.LENGTH_LONG).show();
+			}
+			else
+			{
 
 				ArrayList<String> list = new ArrayList<String>();
 				float punkte = 0;
@@ -362,29 +392,4 @@ public class AngebotDetails extends Activity {
 			}
 		}
 	}
-
-	// private class GetBenutzerAsyncTask extends AsyncTask<String, Void,
-	// Benutzer> {
-	//
-	// @Override
-	// protected Benutzer doInBackground(String... params) {
-	// String email = params[0];
-	//
-	// NetClient netClient = new NetClient();
-	// return netClient.getBenutzerByEmail(email);
-	//
-	// }
-	//
-	// @Override
-	// protected void onPostExecute(Benutzer result) {
-	// super.onPostExecute(result);
-	// if (result != null) {
-	// benutzer = result;
-	// }
-	// else {
-	// Toast.makeText(getBaseContext(),
-	// "Der Benutzer konnte nicht ausgelesen werden", Toast.LENGTH_LONG).show();
-	// }
-	// }
-	// }
 }

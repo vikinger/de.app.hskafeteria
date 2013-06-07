@@ -47,8 +47,10 @@ public class AngeboteListAdapter extends BaseExpandableListAdapter {
   childItem.setText(angebot.getTitel().trim());
   
   TextView childItemPrice = (TextView) view.findViewById(R.id.angebot_childItem_price);
-  Double price = angebot.getPreis();
-  childItemPrice.setText(price.toString() + "€");
+  int price = angebot.getPreis();
+  double priceD = (double)price;
+  priceD = priceD/100;
+  childItemPrice.setText(String.valueOf(priceD) + "0€");
   
    
   return view;

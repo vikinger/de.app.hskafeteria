@@ -70,6 +70,7 @@ public class angebotTab extends Fragment {
 	   Bundle korb = new Bundle();
 	   korb.putString("angebotTitel", angebot.getTitel());
 	   korb.putParcelable("angebot", angebot);
+	   korb.putInt("angebotPreis", angebot.getPreis());
 	   
 	   Intent in = new Intent(ctx, AngebotDetails.class);
 	   in.putExtras(korb);
