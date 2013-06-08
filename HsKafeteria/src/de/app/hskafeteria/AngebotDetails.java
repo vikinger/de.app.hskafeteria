@@ -2,7 +2,6 @@ package de.app.hskafeteria;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import de.app.hskafeteria.datetime.DateTimeFormatter;
@@ -29,7 +28,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -256,36 +254,9 @@ public class AngebotDetails extends Activity {
 			((TextView) view.findViewById(R.id.angebotZutaten)).setText(angebot
 					.getZutaten());
 			((TextView) view.findViewById(R.id.angebotPreis)).setText(preisStr + "€");
-			int test = angebot.getPreis();
-			String test2 = "";
 
 			ratingBar = (RatingBar) findViewById(R.id.ratingBarGesamt);
 		}
-	}
-
-	private class StableArrayAdapter extends ArrayAdapter<String> {
-
-		HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
-
-		public StableArrayAdapter(Context context, int textViewResourceId,
-				List<String> objects) {
-			super(context, textViewResourceId, objects);
-			for (int i = 0; i < objects.size(); ++i) {
-				mIdMap.put(objects.get(i), i);
-			}
-		}
-
-		@Override
-		public long getItemId(int position) {
-			String item = getItem(position);
-			return mIdMap.get(item);
-		}
-
-		@Override
-		public boolean hasStableIds() {
-			return true;
-		}
-
 	}
 
 	private class AngebotDetailsAsyncTask extends
@@ -360,9 +331,7 @@ public class AngebotDetails extends Activity {
 
 				ratingBar.setRating(punkte / result.size());
 
-				StableArrayAdapter adapter = new StableArrayAdapter(
-						getBaseContext(), android.R.layout.simple_list_item_1,
-						list);
+				BewertungenListAdapter adapter = new BewertungenListAdapter(getBaseContext(), result);
 				listview.setAdapter(adapter);
 
 			}
