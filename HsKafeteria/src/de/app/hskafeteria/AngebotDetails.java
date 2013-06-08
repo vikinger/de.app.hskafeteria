@@ -55,6 +55,7 @@ public class AngebotDetails extends Activity {
 		Bundle bundle = getIntent().getExtras();
 		angebot = bundle.getParcelable("angebot");
 		preis = bundle.getInt("angebotPreis");
+		angebot.setPreis(preis);
 		
 		preisD = (double)preis;
 		preisD = preisD/100;
