@@ -1,6 +1,6 @@
 package de.app.hskafeteria;
 
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
@@ -71,15 +71,6 @@ public class AngebotDetails extends Activity {
 		String angebotTitel = angebot.getTitel();
 
 		new AngebotDetailsAsyncTask(this).execute(angebotTitel);
-
-		// SharedPreferences prefs =
-		// PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		// String benutzerEmail = prefs.getString("logged_in_user", "");
-		// new GetBenutzerAsyncTask().execute(benutzerEmail);
-
-		// SharedPreferences prefs =
-		// PreferenceManager.getDefaultSharedPreferences(this);
-		// benutzerId = prefs.getString("logged_in_user", "");
 
 		bewertenButton = (Button) findViewById(R.id.bw_button);
 		bewertenButton.setOnClickListener(new View.OnClickListener() {
@@ -211,9 +202,6 @@ public class AngebotDetails extends Activity {
 
 		bewertung.setDatum(formatter.getDateInLong());
 
-//		if (!bewertung.isInputValid()) {
-//			Toast.makeText(getBaseContext(), "Die Eingabe war nicht korrekt",
-//					Toast.LENGTH_SHORT).show();
 		if ((bewertung.getPunkte() < 1))
 			{
 			Toast.makeText(getBaseContext(), "Bewertung muss mindestens einen Stern haben!",
@@ -320,12 +308,10 @@ public class AngebotDetails extends Activity {
 			else
 			{
 
-				ArrayList<String> list = new ArrayList<String>();
 				float punkte = 0;
 
-				for (int z = 0; z < result.size(); z++) {
-
-					list.add(result.get(z).getKommentar());
+				for (int z = 0; z < result.size(); z++) 
+				{
 					punkte = punkte + result.get(z).getPunkte();
 				}
 
