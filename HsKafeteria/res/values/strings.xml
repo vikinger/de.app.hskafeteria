@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_id">655596937787345</string>
     <string name="app_name">HsKafeteria</string>
     <string name="login">Login</string>
     <string name="nav_news">News</string>
@@ -54,8 +55,11 @@
     <string name="kategorie_obst">Obst</string>
     <string name="kategorie_suessigkeiten">Süßigkeiten</string>
     <string name="kategorie_sonstiges">Sonstiges</string>
+    <string name="get_started">To get started, log in using Facebook</string>
 <string name="btn_route">Zeig mir den Weg!</string>
 <string name="distance"></string>
+<string name="get_started">To get started, log in using Facebook</string>
+<string name="settings">Settings</string>
 
     <string-array name="array_kategorien">
         <item>Getränke</item>

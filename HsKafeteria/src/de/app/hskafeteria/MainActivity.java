@@ -1,10 +1,17 @@
 package de.app.hskafeteria;
 
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.model.GraphUser;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.ActionBar.Tab;
