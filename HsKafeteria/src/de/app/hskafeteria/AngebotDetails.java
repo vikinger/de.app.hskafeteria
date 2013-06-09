@@ -83,7 +83,9 @@ public class AngebotDetails extends Activity {
 		
 		if (angebotTitel.contains(" ") || angebotTitel.contains("ü") || angebotTitel.contains("ö") || angebotTitel.contains("ä") || angebotTitel.contains("ß"))
 		{
-			String newTitle = angebotTitel.replaceAll("\\s", "%20");
+			String newTitle = "";
+			
+			newTitle = angebotTitel.replaceAll("\\s", "%20");
 			newTitle = angebotTitel.replaceAll("ü", "%C3%BC");
 			newTitle = angebotTitel.replaceAll("ö", "%C3%B6");
 			newTitle = angebotTitel.replaceAll("ä", "%C3%A4");
