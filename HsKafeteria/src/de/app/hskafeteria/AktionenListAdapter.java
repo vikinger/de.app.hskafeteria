@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
  
 import java.util.ArrayList;
@@ -82,11 +83,7 @@ public class AktionenListAdapter extends BaseExpandableListAdapter {
         textView.setText(getGroup(i).toString());
         
         dayView.setText(getGroupDate(i).toString());
-//        DateTimeFormatter formatter = new DateTimeFormatter(new Date((Long) getGroupDate(i)));
-//        
-//        dayView.setText(formatter.getDate());
- 
-        //return the entire view
+
         return view;
     }
  
@@ -98,9 +95,23 @@ public class AktionenListAdapter extends BaseExpandableListAdapter {
         }
  
         TextView textView = (TextView) view.findViewById(R.id.list_item_text_child_aktionen);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageViewAktionen);
+        
         //"i" is the position of the parent/group in the list and
         //"i1" is the position of the child
         textView.setText(mParent.get(i).getInhalt());
+        
+        if (mParent.get(i).getTitel().startsWith("Burgertag")) {
+            imageView.setImageResource(R.drawable.burger);
+          } 
+        
+        else if (mParent.get(i).getTitel().startsWith("Pastatag")){
+            imageView.setImageResource(R.drawable.pasta);
+          }
+        
+        else if (mParent.get(i).getTitel().startsWith("Pizzatag")){
+            imageView.setImageResource(R.drawable.pizza);
+          }
  
         //return the entire view
         return view;

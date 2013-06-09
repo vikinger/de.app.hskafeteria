@@ -81,7 +81,7 @@ public class aktionenTab extends Fragment {
 			}
 			else {
 		        ArrayList<Aktion> arrayParents = new ArrayList<Aktion>();
-		    	
+		        
 		        for (int z = 0; z < result.size(); z++){
 		        	
 		        	Aktion aktion = result.get(z);
@@ -90,6 +90,10 @@ public class aktionenTab extends Fragment {
 		           
 		        }
 				mExpandableList.setAdapter(new AktionenListAdapter(aktionenTab.this.getActivity(), arrayParents));
+				
+				
+		        for (int position = 1; position <= arrayParents.size(); position++)
+		        	mExpandableList.expandGroup(position - 1);
 			}
 			pDlg.dismiss();
 		}
