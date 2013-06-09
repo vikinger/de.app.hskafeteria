@@ -14,18 +14,16 @@
         android:layout_below="@+id/Zutaten"
         android:text="@string/angebot_zutaten" />
     
-
-
     <TextView
         android:id="@+id/angebotPreis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:textSize="14sp"
+        android:layout_alignBaseline="@+id/Preis"
+        android:layout_alignBottom="@+id/Preis"
+        android:layout_toRightOf="@+id/Preis"
         android:padding="7dp"
-        android:layout_below="@+id/Preis"
-        android:text="@string/angebot_preis" />
+        android:text="@string/angebot_preis"
+        android:textSize="16sp" />
 
     <RatingBar
         android:id="@+id/ratingBarGesamt"
@@ -110,7 +108,7 @@
         android:layout_height="3dp"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="5dp"
-                android:layout_marginLeft="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_below="@+id/angebotTitel"
         android:background="@android:color/darker_gray" />
@@ -120,7 +118,7 @@
         android:layout_height="1dp"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="5dp"
-                android:layout_marginLeft="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_below="@+id/angebotZutaten"
         android:background="@android:color/darker_gray" />
@@ -128,11 +126,11 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:layout_alignBottom="@+id/angebotPreis"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_alignParentLeft="true"
+        android:layout_below="@+id/angebotPreis"
         android:background="@android:color/darker_gray" />
 
 </RelativeLayout>
