@@ -65,12 +65,12 @@ VALUES (
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Belegte Brötchen', 'Salamibrötchen', 'Salami, Butter, Salat, Käse', '150'
+	'Belegte Brötchen', 'Salamibroetchen', 'Salami, Butter, Salat, Käse', '150'
 );
 
 INSERT INTO angebot (art, titel, zutaten, preis)
 VALUES (
-	'Belegte Brötchen', 'Lyonerbrötchen', 'Lyoner, Butter, Salat, Tomate', '150'
+	'Belegte Brötchen', 'Lyonerbroetchen', 'Lyoner, Butter, Salat, Tomate', '150'
 );
 
 INSERT INTO angebot (art, titel, zutaten, preis)
