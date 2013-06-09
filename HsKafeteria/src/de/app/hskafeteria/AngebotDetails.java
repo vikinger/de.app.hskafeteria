@@ -1,6 +1,7 @@
 package de.app.hskafeteria;
 
 
+import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -30,6 +33,7 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -68,10 +72,28 @@ public class AngebotDetails extends Activity {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		listview = (ListView) findViewById(R.id.bwList);
+		
+		ImageView imageView = (ImageView) findViewById(R.id.imageViewAngebot);
 
 		String angebotTitel = angebot.getTitel();
 
 		new AngebotDetailsAsyncTask(this).execute(angebotTitel);
+		
+		String imgurl = "http://hskafeteria.square7.ch/"+angebotTitel+".jpg";
+		
+		if (angebotTitel.contains(" ") || angebotTitel.contains("ü") || angebotTitel.contains("ö") || angebotTitel.contains("ä") || angebotTitel.contains("ß"))
+		{
+			String newTitle = angebotTitel.replaceAll("\\s", "%20");
+			newTitle = angebotTitel.replaceAll("ü", "%C3%BC");
+			newTitle = angebotTitel.replaceAll("ö", "%C3%B6");
+			newTitle = angebotTitel.replaceAll("ä", "%C3%A4");
+			
+			imgurl = "http://hskafeteria.square7.ch/"+newTitle+".jpg";
+		}
+
+//		String imgurl = "http://www.iwi.hs-karlsruhe.de/ebaws/~eb12/eB-Icon1.png";
+		
+		new DownloadImageTask(imageView).execute(imgurl);
 
 		bewertenButton = (Button) findViewById(R.id.bw_button);
 		bewertenButton.setOnClickListener(new View.OnClickListener() {
@@ -238,8 +260,18 @@ public class AngebotDetails extends Activity {
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			View view = layoutInflater.inflate(
 					R.layout.activity_angebot_details, this);
-			((TextView) view.findViewById(R.id.angebotTitel)).setText(angebot
-					.getTitel());
+			
+			String angebotTitel = angebot.getTitel();
+			
+			if (angebotTitel.contains("ue") || angebotTitel.contains("oe") || angebotTitel.contains("ae") || angebotTitel.contains("ss"))
+			{
+				  angebotTitel = angebotTitel.replaceAll("ue", "ü");
+				  angebotTitel = angebotTitel.replaceAll("oe", "ö");
+				  angebotTitel = angebotTitel.replaceAll("ae", "ä");
+				  angebotTitel = angebotTitel.replaceAll("ss", "ß");
+			}
+			
+			((TextView) view.findViewById(R.id.angebotTitel)).setText(angebotTitel);
 			((TextView) view.findViewById(R.id.angebotZutaten)).setText(angebot
 					.getZutaten());
 			((TextView) view.findViewById(R.id.angebotPreis)).setText(preisStr + "€");
@@ -347,5 +379,29 @@ public class AngebotDetails extends Activity {
 								+ result, Toast.LENGTH_LONG).show();
 			}
 		}
+	}
+	
+	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+	    ImageView bmImage;
+
+	    public DownloadImageTask(ImageView bmImage) {
+	        this.bmImage = bmImage;
+	    }
+
+	    protected Bitmap doInBackground(String... urls) {
+	        String urldisplay = urls[0];
+	        Bitmap mIcon11 = null;
+	        try {
+	            InputStream in = new java.net.URL(urldisplay).openStream();
+	            mIcon11 = BitmapFactory.decodeStream(in);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return mIcon11;
+	    }
+
+	    protected void onPostExecute(Bitmap result) {
+	        bmImage.setImageBitmap(result);
+	    }
 	}
 }

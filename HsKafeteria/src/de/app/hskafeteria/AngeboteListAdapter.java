@@ -44,7 +44,19 @@ public class AngeboteListAdapter extends BaseExpandableListAdapter {
   }
    
   TextView childItem = (TextView) view.findViewById(R.id.angebot_childItem);
-  childItem.setText(angebot.getTitel().trim());
+  
+  String angebotTitel = angebot.getTitel();
+  
+  if (angebotTitel.contains("ue") || angebotTitel.contains("oe") || angebotTitel.contains("ae") || angebotTitel.contains("ss"))
+  {
+	  angebotTitel = angebotTitel.replaceAll("ue", "ü");
+	  angebotTitel = angebotTitel.replaceAll("oe", "ö");
+	  angebotTitel = angebotTitel.replaceAll("ae", "ä");
+	  angebotTitel = angebotTitel.replaceAll("ss", "ß");
+  }
+  
+  
+  childItem.setText(angebotTitel.trim());
   
   TextView childItemPrice = (TextView) view.findViewById(R.id.angebot_childItem_price);
   int price = angebot.getPreis();
