@@ -136,12 +136,10 @@ public class LocationService extends Service {
 				
 				prefs.edit().putString("Latitude", lat.toString()).commit();
 				prefs.edit().putString("Longitude", lon.toString()).commit();
-				prefs.edit().putString("Test", "Blub").commit();
 
 				intent.putExtra("Latitude", loc.getLatitude());
 				intent.putExtra("Longitude", loc.getLongitude());
 				intent.putExtra("Provider", loc.getProvider());
-				intent.putExtra("Test", "Blub");
 				sendBroadcast(intent);
 
 			}

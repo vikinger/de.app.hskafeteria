@@ -33,7 +33,7 @@ public class SelectionFragment extends Fragment {
 	String email = "";
 	String vorname = "";
 	String nachname = "";
-	String passwort = "";
+	String passwort = "fblogin";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,15 +78,6 @@ public class SelectionFragment extends Fragment {
 								
 								new LoginAsyncTask().execute(email, vorname, nachname);
 								
-								NetClient nc = new NetClient();
-								int codeLogin = nc.login(email, passwort);
-								int codePut = 201;
-								if (codeLogin != 200) {
-
-								}
-								if (codePut == 201) {
-									
-								}
 							}
 						}
 						if (response.getError() != null) {
@@ -150,10 +141,9 @@ public class SelectionFragment extends Fragment {
 
 		@Override
 		protected Integer doInBackground(String... params) {
-			String email = params[0];
-			String vorname = params[1];
-			String nachname = params[2];
-			String passwort = "fblogin";
+			email = params[0];
+			vorname = params[1];
+			nachname = params[2];
 			NetClient netClient = new NetClient();
 					
 			return netClient.login(email, passwort);
@@ -190,34 +180,23 @@ public class SelectionFragment extends Fragment {
 
 		@Override
 		protected Integer doInBackground(String... params) {
-			String email = params[0];
-			String vorname = params[1];
-			String nachname = params[2];
-			String passwort = "fblogin";
+			Benutzer fbBenutzer = new Benutzer();
+			fbBenutzer.setVorname(vorname);
+			fbBenutzer.setNachname(nachname);
+			fbBenutzer.setEmail(email);
+			fbBenutzer.setPasswort(passwort);
 			NetClient netClient = new NetClient();
 					
-			return netClient.createNewBenutzer(benutzer)
+			return netClient.createNewBenutzer(fbBenutzer);
 		}
 
 		@Override
 		protected void onPostExecute(Integer result) {
 			super.onPostExecute(result);
-			if (result != 200) {
-				Benutzer fbBenutzer = new Benutzer();
-				fbBenutzer.setVorname(vorname);
-				fbBenutzer.setNachname(nachname);
-				fbBenutzer.setEmail(email);
-				fbBenutzer.setPasswort(passwort);
-				
-				Benutzer fbBenutzer = new Benutzer();
-				fbBenutzer.setVorname(vorname);
-				fbBenutzer.setNachname(nachname);
-				fbBenutzer.setEmail(email);
-				fbBenutzer.setPasswort(passwort);
-				
-				new CreateUserAsyncTask().execute(email, vorname, nachname);
+			if (result != 201) {
+				// fehler
 			}
-			if (result == 200) {
+			else {
 				SharedPreferences prefs = PreferenceManager
 						.getDefaultSharedPreferences(getActivity()
 								.getBaseContext());

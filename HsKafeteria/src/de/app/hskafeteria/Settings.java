@@ -42,7 +42,7 @@ public class Settings extends PreferenceActivity implements
 
 		final SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(ctx);
-		final String name = prefs.getString("Test", "");
+		final String name = prefs.getString("logged_in_user_name", "");
 		final String email = prefs.getString("logged_in_user", "");
 
 		Preference loggedInUserPref = findPreference("logged_in_user_name");
