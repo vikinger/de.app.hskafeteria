@@ -140,7 +140,6 @@
         android:layout_above="@+id/view1"
         android:layout_alignLeft="@+id/bw_button"
         android:layout_alignRight="@+id/view1"
-        android:layout_alignTop="@+id/Zutaten"
-        android:src="@android:drawable/picture_frame" />
+        android:layout_alignTop="@+id/Zutaten" />
 
 </RelativeLayout>

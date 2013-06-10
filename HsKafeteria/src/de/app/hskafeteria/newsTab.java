@@ -95,6 +95,8 @@ public class newsTab extends Fragment {
 		           
 		        }
 				mExpandableList.setAdapter(new NewsListAdapter(newsTab.this.getActivity(), arrayParents));
+				
+				mExpandableList.expandGroup(0);
 			}
 			pDlg.dismiss();
 		}

@@ -103,7 +103,10 @@ public class AngeboteListAdapter extends BaseExpandableListAdapter {
    
   TextView heading = (TextView) view.findViewById(R.id.angebot_kategorie);
   heading.setText(kategorie.getTitel().trim());
-   
+  
+  TextView anzahl = (TextView) view.findViewById(R.id.anzahl_angebote);
+  anzahl.setText(getChildrenCount(groupPosition) + " Artikel");
+  
   return view;
  }
  

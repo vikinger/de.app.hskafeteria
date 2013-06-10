@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-            android:background="@color/light_gray"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/light_gray"
     android:orientation="horizontal" >
 
     <TextView
         android:id="@+id/angebot_childItem"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:padding="7dp"
+        android:layout_weight="1.5"
         android:gravity="left"
+        android:padding="10dp"
+        android:text="Angebot"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/angebot_childItem_price"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
         android:gravity="right"
-                android:padding="7dp"
+        android:padding="5dp"
+        android:text="Preis"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
-</RelativeLayout>
+</LinearLayout>
