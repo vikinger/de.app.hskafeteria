@@ -30,6 +30,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,6 +53,7 @@ public class AngebotDetails extends Activity {
 	private String preisStr;
 	private EditText kommentar;
 	View popupView = null;
+	View layout = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +75,7 @@ public class AngebotDetails extends Activity {
 
 		listview = (ListView) findViewById(R.id.bwList);
 		
-		ImageView imageView = (ImageView) findViewById(R.id.imageViewAngebot);
+		final ImageView imageView = (ImageView) findViewById(R.id.imageViewAngebot);
 
 		String angebotTitel = angebot.getTitel();
 
@@ -92,10 +94,32 @@ public class AngebotDetails extends Activity {
 			
 			imgurl = "http://hskafeteria.square7.ch/"+newTitle+".jpg";
 		}
-
-//		String imgurl = "http://www.iwi.hs-karlsruhe.de/ebaws/~eb12/eB-Icon1.png";
 		
 		new DownloadImageTask(imageView).execute(imgurl);
+		
+        imageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder imageDialog = new AlertDialog.Builder(AngebotDetails.this);
+                LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+
+                View layout = inflater.inflate(R.layout.custom_fullimage_dialog, null);
+                ImageView image = (ImageView) layout.findViewById(R.id.fullimage);
+                
+                image.setImageDrawable(imageView.getDrawable());
+                imageDialog.setView(layout);
+                imageDialog.setPositiveButton("Schlieﬂen", new DialogInterface.OnClickListener(){
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+
+                });
+
+                imageDialog.create();
+                imageDialog.show(); 
+            }
+        });
 
 		bewertenButton = (Button) findViewById(R.id.bw_button);
 		bewertenButton.setOnClickListener(new View.OnClickListener() {

@@ -1,10 +1,13 @@
 package de.app.hskafeteria;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,10 +21,12 @@ public class AktionenListAdapter extends BaseExpandableListAdapter {
 	 
     private LayoutInflater inflater;
     private ArrayList<Aktion> mParent;
+    private Context ctx;
  
     public AktionenListAdapter(Context context, ArrayList<Aktion> parent){
         mParent = parent;
         inflater = LayoutInflater.from(context);
+        ctx = context;
     }
  
  
@@ -89,13 +94,13 @@ public class AktionenListAdapter extends BaseExpandableListAdapter {
  
     @Override
     //in this method you must set the text to see the children on the list
-    public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
+    public View getChildView(int i, int i1, boolean b, View view, final ViewGroup viewGroup) {
         if (view == null) {
             view = inflater.inflate(R.layout.aktionen_list_item_child, viewGroup,false);
         }
  
         TextView textView = (TextView) view.findViewById(R.id.list_item_text_child_aktionen);
-        ImageView imageView = (ImageView) view.findViewById(R.id.imageViewAktionen);
+        final ImageView imageView = (ImageView) view.findViewById(R.id.imageViewAktionen);
         
         //"i" is the position of the parent/group in the list and
         //"i1" is the position of the child
@@ -112,6 +117,30 @@ public class AktionenListAdapter extends BaseExpandableListAdapter {
         else if (mParent.get(i).getTitel().startsWith("Pizzatag")){
             imageView.setImageResource(R.drawable.pizza);
           }
+        
+        imageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder imageDialog = new AlertDialog.Builder(ctx);
+                LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+                View layout = inflater.inflate(R.layout.custom_fullimage_dialog, viewGroup, false);
+                ImageView image = (ImageView) layout.findViewById(R.id.fullimage);
+                image.setImageDrawable(imageView.getDrawable());
+                imageDialog.setView(layout);
+                imageDialog.setPositiveButton("Schlieﬂen", new DialogInterface.OnClickListener(){
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+
+                });
+
+                imageDialog.create();
+                imageDialog.show(); 
+            }
+        });
+          
  
         //return the entire view
         return view;
