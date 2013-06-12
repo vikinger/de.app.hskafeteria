@@ -1,11 +1,14 @@
 package de.app.hskafeteria;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +30,8 @@ import android.widget.Toast;
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
+import com.facebook.Session.OpenRequest;
+import com.facebook.Session.StatusCallback;
 import com.facebook.SessionState;
 import com.facebook.Settings;
 import com.facebook.UiLifecycleHelper;
@@ -154,9 +159,14 @@ public class Login extends FragmentActivity {
 	            manager.popBackStack();
 	        }
 	        if (state.isOpened()) {
+	        	Session.NewPermissionsRequest newPermissionsRequest = new Session
+	                    .NewPermissionsRequest(this, Arrays.asList("email"));
+
+	            session.requestNewReadPermissions(newPermissionsRequest);
 	            // If the session state is open:
 	            // Show the authenticated fragment
 	            showFragment(SELECTION, false);
+
 	        } else if (state.isClosed()) {
 	            // If the session state is closed:
 	            // Show the login fragment

@@ -1,5 +1,9 @@
 package de.app.hskafeteria;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -15,6 +19,8 @@ import android.widget.Toast;
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
+import com.facebook.Session.OpenRequest;
+import com.facebook.SessionLoginBehavior;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
@@ -47,6 +53,7 @@ public class SelectionFragment extends Fragment {
 		Session session = Session.getActiveSession();
 		if (session != null && session.isOpened()) {
 			// Get the user's data
+			
 			makeMeRequest(session);
 		}
 		return view;
@@ -110,7 +117,9 @@ public class SelectionFragment extends Fragment {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == REAUTH_ACTIVITY_CODE) {
 			uiHelper.onActivityResult(requestCode, resultCode, data);
+			
 		}
+
 	}
 
 	@Override
