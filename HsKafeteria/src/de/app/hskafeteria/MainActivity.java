@@ -135,7 +135,10 @@ public class MainActivity extends Activity {
 					public void onClick(DialogInterface dialog, int id) {
 				    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
 				    	prefs.edit().putString("logged_in_user", "").commit();
-
+				    
+				            Session.getActiveSession().closeAndClearTokenInformation();
+				            
+				      
 				    	finish();
 				    	startActivity(getIntent());
 					}
