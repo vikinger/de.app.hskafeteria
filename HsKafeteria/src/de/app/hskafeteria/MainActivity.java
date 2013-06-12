@@ -144,8 +144,9 @@ public class MainActivity extends Activity {
 				    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
 				    	prefs.edit().putString("logged_in_user", "").commit();
 				    
+				    	if(Session.getActiveSession().isOpened()){
 				            Session.getActiveSession().closeAndClearTokenInformation();
-				            
+				    	}
 				      
 				    	finish();
 				    	startActivity(getIntent());
