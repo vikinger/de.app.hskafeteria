@@ -59,6 +59,16 @@ public class newAngebot extends Activity {
 		imageButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				
+				EditText artikelnameET = (EditText) findViewById(R.id.tx_newangebot_artikelname);
+				String artikelname = artikelnameET.getText().toString();
+				
+				if (artikelname == null || artikelname.isEmpty()) {
+					Toast.makeText(newAngebot.this, "Artikelname muss ausfüllt sein",
+							Toast.LENGTH_LONG).show();
+					return;
+				}
+				
 				Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				startActivityForResult(takePicture, 0);//zero can be replced with any action code
 				
@@ -224,6 +234,10 @@ public class newAngebot extends Activity {
 			}
 			preis = preis.replace(",", "");
 		}
+		else
+		{
+			preis = preis+"00";
+		}
 
 		EditText zut = (EditText) findViewById(R.id.tx_newangebot_zutaten);
 		String zutaten = zut.getText().toString();
@@ -232,7 +246,7 @@ public class newAngebot extends Activity {
 		neuesAngebot.setTitel(artikelname);
 		neuesAngebot.setArt(kategorie);
 		neuesAngebot.setZutaten(zutaten);
-		neuesAngebot.setPreis(Integer.parseInt(preis) * 100);
+		neuesAngebot.setPreis(Integer.parseInt(preis));
 
 		if (!neuesAngebot.isInputValid()) {
 			Toast.makeText(this, "Bitte alle Felder ausfüllen",
