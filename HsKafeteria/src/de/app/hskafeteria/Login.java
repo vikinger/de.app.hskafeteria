@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -47,6 +48,7 @@ public class Login extends FragmentActivity {
 	private Context ctx;
 	private String textEmail = null;
 	private String nameOfUser = null;
+	private ProgressDialog pDlg = null;
 	
 	private static final int SPLASH = 0;
 	private static final int SELECTION = 1;
@@ -91,7 +93,9 @@ public class Login extends FragmentActivity {
 		anmeldeButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				
 				anmelden();
+				
 			}
 		});
 
@@ -219,9 +223,7 @@ public class Login extends FragmentActivity {
 	    switch (item.getItemId()) {
 	        case android.R.id.home:
 	            // app icon in action bar clicked; go home
-	            Intent intent = new Intent(this, MainActivity.class);
-	            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	            startActivity(intent);
+	        	super.onBackPressed();
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -229,6 +231,8 @@ public class Login extends FragmentActivity {
 	}
 
 	protected void anmelden() {
+		showProgressDialog();
+		
 		EditText email = (EditText)findViewById(R.id.tx_login_email);
 		textEmail = email.getText().toString();
 
@@ -271,6 +275,7 @@ public class Login extends FragmentActivity {
 			else {
 				Toast.makeText(Login.this, "Email/Passwort falsch", Toast.LENGTH_LONG).show();
 			}
+			pDlg.dismiss();
 		}
 
 	}
@@ -299,6 +304,16 @@ public class Login extends FragmentActivity {
 			}
 		}
 	}
+	
+    private void showProgressDialog() {
+        
+        pDlg = new ProgressDialog(Login.this);
+        pDlg.setMessage("Bitte warten...");
+        pDlg.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pDlg.setCancelable(false);
+        pDlg.show();
+
+    }
 }
 
 
