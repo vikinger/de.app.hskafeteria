@@ -143,6 +143,7 @@ public class SelectionFragment extends Fragment {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		
 		uiHelper.onDestroy();
 	}
 	

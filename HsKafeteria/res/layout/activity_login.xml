@@ -17,7 +17,7 @@
 
             <EditText
                 android:id="@+id/tx_login_email"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
@@ -27,7 +27,7 @@
 
             <EditText
                 android:id="@+id/tx_login_passwort"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="30dp"
             android:text="@string/title_activity_login"
             android:textSize="30sp" />
     </RelativeLayout>
