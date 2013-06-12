@@ -202,15 +202,13 @@ public class newAngebot extends Activity {
 	protected void angebotEintragen() {
 		EditText name = (EditText) findViewById(R.id.tx_newangebot_artikelname);
 		String artikelname = name.getText().toString();
-		if (artikelname.contains("ü") || artikelname.contains("ö") || artikelname.contains("ä") || artikelname.contains("ß"))
+		if (artikelname.contains("ü") || artikelname.contains("ö") || artikelname.contains("ä"))
 		{
 			artikelname = artikelname.replaceAll("ö", "oe");
 			
 			artikelname = artikelname.replaceAll("ä", "ae");
 			
 			artikelname = artikelname.replaceAll("ü", "ue");
-			
-			artikelname = artikelname.replaceAll("ß", "ss");
 		}
 
 		EditText kat = (EditText) findViewById(R.id.tx_newangebot_kategorie);

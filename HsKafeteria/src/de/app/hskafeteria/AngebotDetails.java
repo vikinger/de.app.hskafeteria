@@ -91,6 +91,7 @@ public class AngebotDetails extends Activity {
 			newTitle = angebotTitel.replaceAll("ü", "%C3%BC");
 			newTitle = angebotTitel.replaceAll("ö", "%C3%B6");
 			newTitle = angebotTitel.replaceAll("ä", "%C3%A4");
+			newTitle = angebotTitel.replaceAll("ß", "ss");
 			
 			imgurl = "http://hskafeteria.square7.ch/"+newTitle+".jpg";
 		}
@@ -289,12 +290,11 @@ public class AngebotDetails extends Activity {
 			
 			String angebotTitel = angebot.getTitel();
 			
-			if (angebotTitel.contains("ue") || angebotTitel.contains("oe") || angebotTitel.contains("ae") || angebotTitel.contains("ss"))
+			if (angebotTitel.contains("ue") || angebotTitel.contains("oe") || angebotTitel.contains("ae"))
 			{
 				  angebotTitel = angebotTitel.replaceAll("ue", "ü");
 				  angebotTitel = angebotTitel.replaceAll("oe", "ö");
 				  angebotTitel = angebotTitel.replaceAll("ae", "ä");
-				  angebotTitel = angebotTitel.replaceAll("ss", "ß");
 			}
 			
 			((TextView) view.findViewById(R.id.angebotTitel)).setText(angebotTitel);

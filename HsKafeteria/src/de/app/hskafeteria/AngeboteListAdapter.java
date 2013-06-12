@@ -47,12 +47,11 @@ public class AngeboteListAdapter extends BaseExpandableListAdapter {
   
   String angebotTitel = angebot.getTitel();
   
-  if (angebotTitel.contains("ue") || angebotTitel.contains("oe") || angebotTitel.contains("ae") || angebotTitel.contains("ss"))
+  if (angebotTitel.contains("ue") || angebotTitel.contains("oe") || angebotTitel.contains("ae"))
   {
 	  angebotTitel = angebotTitel.replaceAll("ue", "ü");
 	  angebotTitel = angebotTitel.replaceAll("oe", "ö");
 	  angebotTitel = angebotTitel.replaceAll("ae", "ä");
-	  angebotTitel = angebotTitel.replaceAll("ss", "ß");
   }
   
   
