@@ -143,13 +143,14 @@ public class MainActivity extends Activity {
 					public void onClick(DialogInterface dialog, int id) {
 				    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
 				    	prefs.edit().putString("logged_in_user", "").commit();
-				    
-				    	if(Session.getActiveSession().isOpened()){
-				            Session.getActiveSession().closeAndClearTokenInformation();
+				    	prefs.edit().putString("logged_in_user_name", "").commit();
+		
+				    	Session session = Session.getActiveSession();
+				    	if(session.isOpened()){
+				            session.closeAndClearTokenInformation();
 				    	}
-				      
-				    	finish();
 				    	startActivity(getIntent());
+				    	finish();
 					}
 				})
 				.setNegativeButton("Nein",
