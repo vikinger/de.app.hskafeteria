@@ -30,24 +30,26 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:theme="@style/AppTheme" >
         <activity
             android:name="de.app.hskafeteria.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Login" android:label="@string/title_activity_login"></activity>
-        <activity android:name="Registrierung" android:label="@string/title_activity_registration"></activity>
-        <activity android:name="Settings" android:label="@string/title_activity_settings"></activity>
-        <activity android:name="newNews" android:label="@string/title_activity_newnews"></activity>
-        <activity android:name="newAngebot" android:label="@string/title_activity_newangebot"></activity>
-        <activity android:name="AngebotDetails" android:label="@string/title_activity_angebotdetails"></activity>
-        <activity android:name="LoginFacebook" android:label="@string/app_name"></activity>
-        <activity android:name="com.facebook.LoginActivity" android:label="@string/app_name"></activity>
+        <activity android:name="Login" android:screenOrientation="portrait" android:label="@string/title_activity_login"></activity>
+        <activity android:name="Registrierung" android:screenOrientation="portrait" android:label="@string/title_activity_registration"></activity>
+        <activity android:name="Settings" android:screenOrientation="portrait" android:label="@string/title_activity_settings"></activity>
+        <activity android:name="newNews" android:screenOrientation="portrait" android:label="@string/title_activity_newnews"></activity>
+        <activity android:name="newAngebot" android:screenOrientation="portrait" android:label="@string/title_activity_newangebot"></activity>
+        <activity android:name="AngebotDetails" android:screenOrientation="portrait" android:label="@string/title_activity_angebotdetails"></activity>
+        <activity android:name="LoginFacebook" android:screenOrientation="portrait" android:label="@string/app_name"></activity>
+        <activity android:name="com.facebook.LoginActivity" android:screenOrientation="portrait" android:label="@string/app_name"></activity>
             <service
         android:name="LocationService"
         android:label="My Service" >
