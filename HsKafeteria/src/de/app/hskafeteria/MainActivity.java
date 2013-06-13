@@ -146,9 +146,9 @@ public class MainActivity extends Activity {
 				    	prefs.edit().putString("logged_in_user_name", "").commit();
 		
 				    	Session session = Session.getActiveSession();
-				    	if(session.isOpened()){
+//				    	if(session != null){
 				            session.closeAndClearTokenInformation();
-				    	}
+//				    	}
 				    	startActivity(getIntent());
 				    	finish();
 					}
