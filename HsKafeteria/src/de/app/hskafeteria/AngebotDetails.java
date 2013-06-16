@@ -88,11 +88,11 @@ public class AngebotDetails extends Activity {
 		{
 			String newTitle = "";
 			
-			newTitle = angebotTitel.replaceAll("\\s", "%20");
 			newTitle = angebotTitel.replaceAll("ü", "%C3%BC");
 			newTitle = angebotTitel.replaceAll("ö", "%C3%B6");
 			newTitle = angebotTitel.replaceAll("ä", "%C3%A4");
 			newTitle = angebotTitel.replaceAll("ß", "ss");
+			newTitle = angebotTitel.replaceAll("\\s", "%20");
 			
 			imgurl = "http://hskafeteria.square7.ch/"+newTitle+".jpg";
 		}
