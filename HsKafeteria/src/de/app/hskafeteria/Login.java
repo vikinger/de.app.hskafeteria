@@ -242,6 +242,7 @@ public class Login extends FragmentActivity {
 		if (textEmail.equals("") || textPassword.equals("")) {
 			Toast.makeText(this, "Bitte alle Felder ausfüllen",
 					Toast.LENGTH_LONG).show();
+			pDlg.dismiss();
 			return;
 		}
 		new GetUserNameAsyncTask().execute(textEmail);
