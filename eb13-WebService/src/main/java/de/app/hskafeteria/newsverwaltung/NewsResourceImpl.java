@@ -6,7 +6,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.JAXBElement;
 
@@ -34,20 +33,6 @@ public class NewsResourceImpl implements NewsResource {
 		newsDao.createNews(news.getValue());
 		newsDao.shutdown();
 		return Response.status(201).build();
-	}
-
-	@Override
-	public Response deleteNews(String newsId) {
-		newsDao.deleteNews(newsId);
-		newsDao.shutdown();
-		return Response.status(Status.OK).build();
-	}
-
-	
-	@Override
-	public Response updateNews(JAXBElement<News> news) {
-		newsDao.updateNews(news.getValue());
-		return Response.status(200).entity(news).build();
 	}
 
 }

@@ -6,7 +6,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.JAXBElement;
 
@@ -34,19 +33,6 @@ public class AngebotResourceImpl implements AngebotResource {
 		angebotDao.createAngebot(angebot.getValue());
 		angebotDao.shutdown();
 		return Response.status(201).build();
-	}
-
-	@Override
-	public Response deleteAngebot(String angebotId) {
-		angebotDao.deleteAngebot(angebotId);
-		angebotDao.shutdown();
-		return Response.status(Status.OK).build();
-	}
-	
-	@Override
-	public Response updateAngebot(JAXBElement<Angebot> angebot) {
-		angebotDao.updateAngebot(angebot.getValue());
-		return Response.status(200).entity(angebot).build();
 	}
 
 }

@@ -6,7 +6,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.JAXBElement;
 
@@ -41,10 +40,4 @@ public class BewertungResourceImpl implements BewertungResource {
 		return Response.status(200).entity(entity).build();
 	}
 
-	@Override
-	public Response deleteBewertung(String bewertungId) {
-		bewertungDao.deleteBewertung(bewertungId);
-		bewertungDao.shutdown();
-		return Response.status(Status.OK).build();
-	}
 }

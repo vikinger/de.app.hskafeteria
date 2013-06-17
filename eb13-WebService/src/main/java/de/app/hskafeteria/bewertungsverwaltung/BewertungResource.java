@@ -1,7 +1,6 @@
 package de.app.hskafeteria.bewertungsverwaltung;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -26,7 +25,4 @@ public interface BewertungResource {
 	@Path("/{titel}/")
 	public Response getBewertungenFromAngebot(@PathParam("titel") String angebotTitel);
 	
-	@DELETE
-	@Path("/{id}/")
-	public Response deleteBewertung(@PathParam("id") String bewertungId);
 }

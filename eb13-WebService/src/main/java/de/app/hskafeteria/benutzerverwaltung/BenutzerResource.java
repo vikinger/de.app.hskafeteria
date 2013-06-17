@@ -1,7 +1,6 @@
 package de.app.hskafeteria.benutzerverwaltung;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -26,14 +25,6 @@ public interface BenutzerResource {
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	public Response getAllBenutzers();
-	
-	@POST
-	@Path("/{id}/")
-	public Response updateBenutzer(JAXBElement<Benutzer> benutzer);
-
-	@DELETE
-	@Path("/{id}")
-	public Response deleteBenutzer(@PathParam("id") String id);
 	
 	@POST
 	@Path("/newpassword/{userNewPassword}")

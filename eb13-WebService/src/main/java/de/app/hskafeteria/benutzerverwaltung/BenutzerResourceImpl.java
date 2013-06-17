@@ -39,19 +39,6 @@ public class BenutzerResourceImpl implements BenutzerResource {
 	}
 
 	@Override
-	public Response deleteBenutzer(String id) {
-		benutzerDao.deleteBenutzer(id);
-		return Response.status(200).build();
-	}
-
-	@Override
-	public Response updateBenutzer(JAXBElement<Benutzer> benutzer) {
-		benutzerDao.updateBenutzer(benutzer.getValue());
-		benutzerDao.shutdown();
-		return Response.status(200).entity(benutzer).build();
-	}
-
-	@Override
 	public Response changePassword(String userNewPassword) {
 		String delim = "-";
 		String[] parsedStr = userNewPassword.split(delim);
